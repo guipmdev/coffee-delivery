@@ -1,13 +1,12 @@
 import { styled } from 'styled-components'
 
 export const HeaderContainer = styled.header`
-  max-width: ${(props) => props.theme['max-width']};
-  margin: 0 auto;
-
   display: flex;
   justify-content: space-between;
 
+  max-width: ${(props) => props.theme['max-width']};
   padding: 2rem;
+  margin: 0 auto;
 
   img {
     height: 40px;
@@ -76,17 +75,17 @@ export const ShoppingCartButton = styled(BaseButton)`
   }
 
   span {
-    top: -10px;
-    right: -10px;
-
     position: absolute;
+    right: -10px;
+    top: -10px;
+
     height: 20px;
     width: 20px;
+    border-radius: 50%;
 
     background: ${(props) => props.theme['yellow-dark']};
-    color: ${(props) => props.theme.white};
 
-    border-radius: 50%;
+    color: ${(props) => props.theme.white};
     line-height: 130%;
   }
 `
