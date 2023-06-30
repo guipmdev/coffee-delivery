@@ -99,8 +99,7 @@ export const CoffeeList = styled.section`
 
   ul {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-column-gap: 32px;
-    grid-row-gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+    gap: 2.5rem 2rem;
   }
 `

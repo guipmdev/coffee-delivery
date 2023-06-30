@@ -6,7 +6,8 @@ export const CoffeeCardContainer = styled.li`
   align-items: center;
   gap: 0.75rem;
 
-  max-width: 256px;
+  width: 100%;
+  /* max-width: 256px; */
 
   position: relative;
   background: ${(props) => props.theme['base-card']};
@@ -113,8 +114,6 @@ export const QuantitySelector = styled.div`
   border-radius: 6px;
 
   & > span {
-    padding: 0 0.25rem;
-
     color: ${(props) => props.theme['base-title']};
     font: ${(props) => props.theme['text-m']};
   }
