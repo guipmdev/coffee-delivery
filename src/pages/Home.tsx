@@ -33,7 +33,7 @@ export function Home() {
       <main>
         <div>
           <div>
-            <h2>Encontre o café perfeito para qualquer hora do dia</h2>
+            <h1>Encontre o café perfeito para qualquer hora do dia</h1>
             <p>
               Com o Coffee Delivery você recebe seu café onde estiver, a
               qualquer hora
@@ -74,7 +74,7 @@ export function Home() {
         </div>
 
         <div>
-          <h3>Nossos cafés</h3>
+          <h2>Nossos cafés</h2>
 
           <ul>
             <li>
@@ -94,12 +94,12 @@ export function Home() {
 
                 <div>
                   <div>
-                    <button title="Diminuir quantidade desejada">
-                      <Plus />
-                    </button>
-                    <span>1</span>
                     <button title="Aumentar quantidade desejada">
                       <Minus />
+                    </button>
+                    <span>1</span>
+                    <button title="Diminuir quantidade desejada">
+                      <Plus />
                     </button>
                   </div>
 
