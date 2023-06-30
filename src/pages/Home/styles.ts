@@ -13,7 +13,7 @@ export const HomeContainer = styled.main`
 
 export const Intro = styled.section`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto auto;
   gap: 3.5rem;
 
   max-width: ${(props) => props.theme['max-width']};
@@ -22,6 +22,7 @@ export const Intro = styled.section`
 
   & > img {
     width: 100%;
+    min-width: 238px;
     max-width: 476px;
     margin: 0 auto;
   }
@@ -52,10 +53,11 @@ export const Intro = styled.section`
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
   }
 
-  @media (max-width: 968px) {
+  @media (max-width: 868px) {
     ul {
       grid-template-columns: 1fr;
     }
