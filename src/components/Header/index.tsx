@@ -2,7 +2,7 @@ import { HeaderContainer } from './styles'
 
 import { MapPin, ShoppingCart } from '@phosphor-icons/react'
 
-import CoffeeDeliveryLogo from '../assets/coffee-delivery-logo.svg'
+import CoffeeDeliveryLogo from '../../assets/coffee-delivery-logo.svg'
 
 export function Header() {
   return (
