@@ -1,4 +1,4 @@
-import { styled } from 'styled-components'
+import { styled, css } from 'styled-components'
 
 export const HeaderContainer = styled.header`
   display: flex;
@@ -10,82 +10,70 @@ export const HeaderContainer = styled.header`
 
   img {
     height: 40px;
-    width: auto;
   }
 
-  div {
+  & > div {
     display: flex;
     gap: 0.75rem;
   }
 `
 
-export const BaseButton = styled.button`
+interface HeaderButtonProps {
+  mainColor: 'purple' | 'yellow'
+  hasPill?: boolean
+}
+
+export const HeaderButton = styled.button<HeaderButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: 0.25rem;
 
   position: relative;
+
+  background: ${(props) => props.theme[`${props.mainColor}-light`]};
 
   padding: 0.5rem;
   border: none;
   border-radius: 6px;
 
-  font-size: 0.875rem;
+  color: ${(props) => props.theme[`${props.mainColor}-dark`]};
+  font: ${(props) => props.theme['text-s']};
 
   cursor: pointer;
 
   transition: color 0.1s, background-color 0.1s;
 
   &:hover {
-    color: ${(props) => props.theme.white};
+    background: ${(props) => props.theme[props.mainColor]};
 
+    &,
     svg {
       color: ${(props) => props.theme.white};
     }
   }
-`
 
-export const LocationButton = styled(BaseButton)`
-  background: ${(props) => props.theme['purple-light']};
+  ${(props) =>
+    props.hasPill &&
+    css`
+      span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-  color: ${(props) => props.theme['purple-dark']};
+        position: absolute;
+        right: -0.625rem;
+        top: -0.625rem;
 
-  svg {
-    color: ${(props) => props.theme.purple};
-  }
+        width: 1.25rem;
+        height: 1.25rem;
+        border-radius: 50%;
 
-  &:hover {
-    background: ${(props) => props.theme.purple};
-  }
-`
+        background: ${props.theme[`${props.mainColor}-dark`]};
 
-export const ShoppingCartButton = styled(BaseButton)`
-  background: ${(props) => props.theme['yellow-light']};
-
-  color: ${(props) => props.theme['yellow-dark']};
-  line-height: 0;
-
-  svg {
-    color: ${(props) => props.theme.yellow};
-  }
-
-  &:hover {
-    background: ${(props) => props.theme.yellow};
-  }
-
-  span {
-    position: absolute;
-    right: -10px;
-    top: -10px;
-
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-
-    background: ${(props) => props.theme['yellow-dark']};
-
-    color: ${(props) => props.theme.white};
-    line-height: 130%;
-  }
+        color: ${props.theme.white};
+        font: ${(props) => props.theme['text-xs']};
+        line-height: 0;
+      }
+    `}
 `

@@ -1,4 +1,4 @@
-import { HeaderContainer, LocationButton, ShoppingCartButton } from './styles'
+import { HeaderContainer, HeaderButton } from './styles'
 
 import { MapPin, ShoppingCart } from '@phosphor-icons/react'
 
@@ -10,14 +10,14 @@ export function Header() {
       <img src={CoffeeDeliveryLogo} alt="" />
 
       <div>
-        <LocationButton title="Local">
+        <HeaderButton mainColor="purple" title="Local">
           <MapPin size={22} weight="fill" /> Porto Alegre, RS
-        </LocationButton>
+        </HeaderButton>
 
-        <ShoppingCartButton title="Carrinho">
+        <HeaderButton mainColor="yellow" hasPill title="Carrinho">
           <span>3</span>
           <ShoppingCart size={22} weight="fill" />
-        </ShoppingCartButton>
+        </HeaderButton>
       </div>
     </HeaderContainer>
   )

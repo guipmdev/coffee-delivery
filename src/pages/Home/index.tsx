@@ -1,4 +1,10 @@
-import { Differential, HomeContainer, Intro } from './styles'
+import {
+  Differential,
+  HomeContainer,
+  Intro,
+  CoffeeList,
+  CoffeeItem,
+} from './styles'
 
 import {
   ShoppingCart,
@@ -59,16 +65,18 @@ export function Home() {
         </Intro>
       </div>
 
-      <div>
+      <CoffeeList>
         <h2>Nossos cafés</h2>
 
         <ul>
-          <li>
+          <CoffeeItem>
             <img src={Expresso} alt="" />
 
-            <span>TRADICIONAL</span>
+            <div className="tags">
+              <span>TRADICIONAL</span>
+            </div>
 
-            <div>
+            <div className="coffee-infos">
               <strong>Expresso Tradicional</strong>
               <p>O tradicional café feito com água quente e grãos moídos</p>
             </div>
@@ -94,9 +102,9 @@ export function Home() {
                 </button>
               </div>
             </div>
-          </li>
+          </CoffeeItem>
         </ul>
-      </div>
+      </CoffeeList>
     </HomeContainer>
   )
 }

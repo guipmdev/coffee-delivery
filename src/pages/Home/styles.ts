@@ -85,3 +85,72 @@ export const Differential = styled.li<DifferentialProps>`
     background: ${(props) => props.theme[props.backgroundColor]};
   }
 `
+
+export const CoffeeList = styled.section`
+  max-width: ${(props) => props.theme['max-width']};
+  padding: 0 2rem;
+  margin: 0 auto;
+
+  h2 {
+    color: ${(props) => props.theme['base-subtitle']};
+    font-size: 2rem;
+    line-height: 130%;
+    font-weight: 800;
+    font-family: 'baloo 2', sans-serif;
+
+    margin-bottom: 3.375rem;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+`
+
+export const CoffeeItem = styled.li`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 1.25rem;
+  gap: 0.75rem;
+
+  background: ${(props) => props.theme['base-card']};
+  border-radius: 6px 36px;
+
+  img {
+    margin-top: calc((20px + 1.25rem) * -1);
+
+    width: 120px;
+    height: 120px;
+  }
+
+  .tags {
+    display: flex;
+    gap: 4px;
+
+    & > span {
+      border-radius: 100px;
+      background: ${(props) => props.theme['yellow-light']};
+      color: ${(props) => props.theme['yellow-dark']};
+      font-size: 0.625rem;
+      line-height: 130%;
+      font-weight: 700;
+      padding: 4px 8px;
+    }
+  }
+
+  .coffee-infos {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+
+    strong {
+      font-family: 'baloo 2', sans-serif;
+      font-size: 1.25rem;
+      line-height: 130%;
+      font-weight: 700;
+    }
+  }
+`
