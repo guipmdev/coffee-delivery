@@ -1,3 +1,5 @@
+import { CheckoutContainer } from './styles'
+
 import {
   MapPinLine,
   CurrencyDollar,
@@ -9,11 +11,11 @@ import {
   Trash,
 } from '@phosphor-icons/react'
 
-import Expresso from '../assets/expresso.svg'
+import Expresso from '../../assets/expresso.svg'
 
 export function Checkout() {
   return (
-    <main>
+    <CheckoutContainer>
       <section>
         <h2>Complete seu pedido</h2>
 
@@ -131,6 +133,6 @@ export function Checkout() {
           <button>CONFIRMAR PEDIDO</button>
         </div>
       </section>
-    </main>
+    </CheckoutContainer>
   )
 }

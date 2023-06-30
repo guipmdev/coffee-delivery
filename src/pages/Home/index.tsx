@@ -1,3 +1,5 @@
+import { HomeContainer } from './styles'
+
 import {
   ShoppingCart,
   Package,
@@ -7,12 +9,12 @@ import {
   Minus,
 } from '@phosphor-icons/react'
 
-import CoffeeBanner from '../assets/coffee-banner.svg'
-import Expresso from '../assets/expresso.svg'
+import CoffeeBanner from '../../assets/coffee-banner.svg'
+import Expresso from '../../assets/expresso.svg'
 
 export function Home() {
   return (
-    <main>
+    <HomeContainer>
       <div>
         <div>
           <h1>Encontre o café perfeito para qualquer hora do dia</h1>
@@ -93,6 +95,6 @@ export function Home() {
           </li>
         </ul>
       </div>
-    </main>
+    </HomeContainer>
   )
 }

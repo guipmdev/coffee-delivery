@@ -1,10 +1,12 @@
+import { SuccessContainer } from './styles'
+
 import { MapPin, Timer, CurrencyDollar } from '@phosphor-icons/react'
 
-import MotoboyDelivery from '../assets/motoboy-delivery.svg'
+import MotoboyDelivery from '../../assets/motoboy-delivery.svg'
 
 export function Success() {
   return (
-    <main>
+    <SuccessContainer>
       <div>
         <div>
           <h1>Uhu! Pedido confirmado</h1>
@@ -51,6 +53,6 @@ export function Success() {
       </div>
 
       <img src={MotoboyDelivery} alt="" />
-    </main>
+    </SuccessContainer>
   )
 }
