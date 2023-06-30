@@ -60,31 +60,6 @@ export const Intro = styled.section`
   }
 `
 
-interface DifferentialProps {
-  backgroundColor: string
-}
-
-export const Differential = styled.li<DifferentialProps>`
-  display: flex;
-  align-items: center;
-
-  span {
-    height: 100%;
-    padding: 0.5rem;
-    border-radius: 50%;
-    margin-right: 0.75rem;
-
-    color: ${(props) => props.theme.white};
-    line-height: 0;
-
-    background: ${(props) => props.theme[props.backgroundColor]};
-  }
-
-  p {
-    font: ${(props) => props.theme['text-m']};
-  }
-`
-
 export const CoffeeList = styled.section`
   max-width: ${(props) => props.theme['max-width']};
   padding: 0 2rem 9.8125rem;
