@@ -12,14 +12,13 @@ export const HomeContainer = styled.main`
 `
 
 export const Intro = styled.section`
-  max-width: ${(props) => props.theme['max-width']};
-  margin: 0 auto;
-
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3.5rem;
 
+  max-width: ${(props) => props.theme['max-width']};
   padding: 5.875rem 2rem 6.75rem;
+  margin: 0 auto;
 
   & > img {
     width: 100%;
@@ -30,9 +29,9 @@ export const Intro = styled.section`
   h1 {
     font-family: 'baloo 2', sans-serif;
     color: ${(props) => props.theme['base-title']};
-    line-height: 130%;
     font-size: 3rem;
     font-weight: 800;
+    line-height: 130%;
   }
 
   h1 + p {
@@ -73,10 +72,10 @@ export const Differential = styled.li<DifferentialProps>`
   flex: 1;
 
   span {
+    height: 100%;
     padding: 0.5rem;
     border-radius: 50%;
     margin-right: 0.75rem;
-    height: 100%;
 
     color: ${(props) => props.theme.white};
     line-height: 0;

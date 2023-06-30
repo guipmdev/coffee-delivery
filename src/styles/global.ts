@@ -2,9 +2,9 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle<{}>`
   * {
-    margin: 0;  
-    padding: 0;
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;  
   }
 
   :focus {
@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle<{}>`
 
   body {
     background: ${(props) => props.theme.background};
+    
     color: ${(props) => props.theme['base-text']};
     -webkit-font-smoothing: antialiased;
   }
