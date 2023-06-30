@@ -1,6 +1,9 @@
 import { styled } from 'styled-components'
 
 export const HeaderContainer = styled.header`
+  max-width: ${(props) => props.theme['max-width']};
+  margin: 0 auto;
+
   display: flex;
   justify-content: space-between;
 

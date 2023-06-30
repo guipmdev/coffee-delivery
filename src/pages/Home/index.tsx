@@ -1,4 +1,4 @@
-import { HomeContainer } from './styles'
+import { Differential, HomeContainer, Intro } from './styles'
 
 import {
   ShoppingCart,
@@ -15,46 +15,48 @@ import Expresso from '../../assets/expresso.svg'
 export function Home() {
   return (
     <HomeContainer>
-      <div>
-        <div>
-          <h1>Encontre o café perfeito para qualquer hora do dia</h1>
-          <p>
-            Com o Coffee Delivery você recebe seu café onde estiver, a qualquer
-            hora
-          </p>
+      <div className="intro-wrapper">
+        <Intro>
+          <div>
+            <h1>Encontre o café perfeito para qualquer hora do dia</h1>
+            <p>
+              Com o Coffee Delivery você recebe seu café onde estiver, a
+              qualquer hora
+            </p>
 
-          <ul>
-            <li>
-              <span>
-                <ShoppingCart weight="fill" />
-              </span>
-              Compra simples e segura
-            </li>
+            <ul>
+              <Differential backgroundColor="yellow-dark">
+                <span>
+                  <ShoppingCart size={16} weight="fill" />
+                </span>
+                <p>Compra simples e segura</p>
+              </Differential>
 
-            <li>
-              <span>
-                <Package weight="fill" />
-              </span>
-              Embalagem mantém o café intacto
-            </li>
+              <Differential backgroundColor="base-text">
+                <span>
+                  <Package size={16} weight="fill" />
+                </span>
+                <p>Embalagem mantém o café intacto</p>
+              </Differential>
 
-            <li>
-              <span>
-                <Timer weight="fill" />
-              </span>
-              Entrega rápida e rastreada
-            </li>
+              <Differential backgroundColor="yellow">
+                <span>
+                  <Timer size={16} weight="fill" />
+                </span>
+                <p>Entrega rápida e rastreada</p>
+              </Differential>
 
-            <li>
-              <span>
-                <Coffee weight="fill" />
-              </span>
-              O café chega fresquinho até você
-            </li>
-          </ul>
-        </div>
+              <Differential backgroundColor="purple">
+                <span>
+                  <Coffee size={16} weight="fill" />
+                </span>
+                <p>O café chega fresquinho até você</p>
+              </Differential>
+            </ul>
+          </div>
 
-        <img src={CoffeeBanner} alt="" />
+          <img src={CoffeeBanner} alt="" />
+        </Intro>
       </div>
 
       <div>
