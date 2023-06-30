@@ -12,7 +12,7 @@ export const HeaderContainer = styled.header`
     height: 40px;
   }
 
-  & > div {
+  & > nav {
     display: flex;
     gap: 0.75rem;
   }
@@ -23,7 +23,7 @@ interface HeaderButtonProps {
   hasPill?: boolean
 }
 
-export const HeaderButton = styled.button<HeaderButtonProps>`
+export const ActionButton = styled.button<HeaderButtonProps>`
   display: flex;
   justify-content: center;
   align-items: center;

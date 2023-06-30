@@ -4,10 +4,7 @@ import Background from '../../assets/background.svg'
 
 export const HomeContainer = styled.main`
   .intro-wrapper {
-    background: url(${Background});
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+    background: no-repeat url(${Background}) center / cover;
   }
 `
 
@@ -28,25 +25,24 @@ export const Intro = styled.section`
   }
 
   h1 {
-    font-family: 'baloo 2', sans-serif;
     color: ${(props) => props.theme['base-title']};
-    font-size: 3rem;
-    font-weight: 800;
-    line-height: 130%;
-  }
+    font: ${(props) => props.theme['title-xl']};
 
-  h1 + p {
-    color: ${(props) => props.theme['base-subtitle']};
-    font-size: 1.25rem;
-    line-height: 130%;
+    & + p {
+      color: ${(props) => props.theme['base-subtitle']};
+      font: ${(props) => props.theme['text-l']};
+      font-weight: 400;
 
-    margin: 1rem 0 4.125rem;
+      margin: 1rem 0 4.125rem;
+    }
   }
 
   ul {
     display: grid;
     grid-template-columns: 1fr 1.25fr;
-    gap: 1.25rem;
+    grid-column-gap: 2.5rem;
+    grid-row-gap: 1.25rem;
+
     align-items: center;
 
     list-style: none;
@@ -71,7 +67,6 @@ interface DifferentialProps {
 export const Differential = styled.li<DifferentialProps>`
   display: flex;
   align-items: center;
-  flex: 1;
 
   span {
     height: 100%;
@@ -84,19 +79,20 @@ export const Differential = styled.li<DifferentialProps>`
 
     background: ${(props) => props.theme[props.backgroundColor]};
   }
+
+  p {
+    font: ${(props) => props.theme['text-m']};
+  }
 `
 
 export const CoffeeList = styled.section`
   max-width: ${(props) => props.theme['max-width']};
-  padding: 0 2rem;
+  padding: 0 2rem 9.8125rem;
   margin: 0 auto;
 
   h2 {
     color: ${(props) => props.theme['base-subtitle']};
-    font-size: 2rem;
-    line-height: 130%;
-    font-weight: 800;
-    font-family: 'baloo 2', sans-serif;
+    font: ${(props) => props.theme['title-l']};
 
     margin-bottom: 3.375rem;
   }
@@ -104,53 +100,7 @@ export const CoffeeList = styled.section`
   ul {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-`
-
-export const CoffeeItem = styled.li`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  padding: 1.25rem;
-  gap: 0.75rem;
-
-  background: ${(props) => props.theme['base-card']};
-  border-radius: 6px 36px;
-
-  img {
-    margin-top: calc((20px + 1.25rem) * -1);
-
-    width: 120px;
-    height: 120px;
-  }
-
-  .tags {
-    display: flex;
-    gap: 4px;
-
-    & > span {
-      border-radius: 100px;
-      background: ${(props) => props.theme['yellow-light']};
-      color: ${(props) => props.theme['yellow-dark']};
-      font-size: 0.625rem;
-      line-height: 130%;
-      font-weight: 700;
-      padding: 4px 8px;
-    }
-  }
-
-  .coffee-infos {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    text-align: center;
-
-    strong {
-      font-family: 'baloo 2', sans-serif;
-      font-size: 1.25rem;
-      line-height: 130%;
-      font-weight: 700;
-    }
+    grid-column-gap: 32px;
+    grid-row-gap: 40px;
   }
 `

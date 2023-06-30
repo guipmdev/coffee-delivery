@@ -1,22 +1,10 @@
-import {
-  Differential,
-  HomeContainer,
-  Intro,
-  CoffeeList,
-  CoffeeItem,
-} from './styles'
+import { Differential, HomeContainer, Intro, CoffeeList } from './styles'
 
-import {
-  ShoppingCart,
-  Package,
-  Timer,
-  Coffee,
-  Plus,
-  Minus,
-} from '@phosphor-icons/react'
+import { ShoppingCart, Package, Timer, Coffee } from '@phosphor-icons/react'
+
+import { CoffeeCard } from '../../components/CoffeeCard'
 
 import CoffeeBanner from '../../assets/coffee-banner.svg'
-import Expresso from '../../assets/expresso.svg'
 
 export function Home() {
   return (
@@ -69,40 +57,14 @@ export function Home() {
         <h2>Nossos cafés</h2>
 
         <ul>
-          <CoffeeItem>
-            <img src={Expresso} alt="" />
-
-            <div className="tags">
-              <span>TRADICIONAL</span>
-            </div>
-
-            <div className="coffee-infos">
-              <strong>Expresso Tradicional</strong>
-              <p>O tradicional café feito com água quente e grãos moídos</p>
-            </div>
-
-            <div>
-              <span>
-                R$ <strong>9,90</strong>
-              </span>
-
-              <div>
-                <div>
-                  <button title="Aumentar quantidade desejada">
-                    <Minus />
-                  </button>
-                  <span>1</span>
-                  <button title="Diminuir quantidade desejada">
-                    <Plus />
-                  </button>
-                </div>
-
-                <button title="Adicionar ao carrinho">
-                  <ShoppingCart />
-                </button>
-              </div>
-            </div>
-          </CoffeeItem>
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
         </ul>
       </CoffeeList>
     </HomeContainer>

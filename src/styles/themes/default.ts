@@ -19,20 +19,20 @@ export const defaultTheme = {
   background: '#FAFAFA',
   white: '#FFFFFF',
 
-  'title-xl': '800 3rem/130% "Baloo 2", sans-serif',
-  'title-l': '800 2rem/130% "Baloo 2", sans-serif',
-  'title-m': '800 1.5rem/130% "Baloo 2", sans-serif',
-  'title-s': '700 1.25rem/130% "Baloo 2", sans-serif',
-  'title-xs': '700 1.125rem/130% "Baloo 2", sans-serif',
+  'title-xl': '800 3rem / 130% "Baloo 2", sans-serif',
+  'title-l': '800 2rem / 130% "Baloo 2", sans-serif',
+  'title-m': '800 1.5rem / 130% "Baloo 2", sans-serif',
+  'title-s': '700 1.25rem / 130% "Baloo 2", sans-serif',
+  'title-xs': '700 1.125rem / 130% "Baloo 2", sans-serif',
 
-  'text-l': '700 1.25rem/130% "Roboto", sans-serif',
-  'text-m': '700 1rem/130% "Roboto", sans-serif',
-  'text-s': '400 0.875rem/130% "Roboto", sans-serif',
-  'text-xs': '700 0.75rem/130% "Roboto", sans-serif',
+  'text-l': '700 1.25rem / 130% "Roboto", sans-serif',
+  'text-m': '400 1rem / 130% "Roboto", sans-serif',
+  'text-s': '400 0.875rem / 130% "Roboto", sans-serif',
+  'text-xs': '700 0.75rem / 130% "Roboto", sans-serif',
 
-  tag: '700 0.625rem/130% "Roboto", sans-serif',
-  'button-g': '700 0.875rem/160% "Roboto", sans-serif',
-  'button-m': '400 0.75rem/160% "Roboto", sans-serif',
+  tag: '700 0.625rem / 130% "Roboto", sans-serif',
+  'button-g': '700 0.875rem / 160% "Roboto", sans-serif',
+  'button-m': '400 0.75rem / 160% "Roboto", sans-serif',
 
   'max-width': '74rem',
 }

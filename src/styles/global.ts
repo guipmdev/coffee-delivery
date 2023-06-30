@@ -21,6 +21,5 @@ export const GlobalStyle = createGlobalStyle<{}>`
 
   body, input, textarea, button {
     font: ${(props) => props.theme['text-m']};
-    font-weight: 400;
   }
 `
