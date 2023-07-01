@@ -17,7 +17,7 @@ export const Intro = styled.section`
   padding: 5.875rem 2rem 6.75rem;
   margin: 0 auto;
 
-  & > img {
+  img {
     width: 100%;
     min-width: 238px;
     max-width: 476px;

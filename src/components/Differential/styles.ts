@@ -9,7 +9,6 @@ export const DifferentialContainer = styled.li<DifferentialProps>`
   align-items: center;
 
   span {
-    height: 100%;
     padding: 0.5rem;
     border-radius: 50%;
     margin-right: 0.75rem;
@@ -20,7 +19,9 @@ export const DifferentialContainer = styled.li<DifferentialProps>`
     background: ${(props) => props.theme[props.backgroundColor]};
   }
 
-  p {
-    font: ${(props) => props.theme['text-m']};
+  div {
+    p {
+      font: ${(props) => props.theme['text-m']};
+    }
   }
 `
