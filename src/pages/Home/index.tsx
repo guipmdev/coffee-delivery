@@ -2,7 +2,7 @@ import { HomeContainer, Intro, CoffeeList } from './styles'
 
 import { ShoppingCart, Package, Timer, Coffee } from '@phosphor-icons/react'
 
-import { CoffeeCard } from '../../components/CoffeeCard'
+import { CoffeeCard } from './components/CoffeeCard'
 import { Differential } from '../../components/Differential'
 
 import CoffeeBanner from '../../assets/coffee-banner.svg'
