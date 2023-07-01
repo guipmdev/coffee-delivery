@@ -20,29 +20,21 @@ export function Home() {
             </p>
 
             <ul>
-              <Differential
-                icon={ShoppingCart}
-                content="Compra simples e segura"
-                backgroundColor="yellow-dark"
-              />
+              <Differential icon={ShoppingCart} backgroundColor="yellow-dark">
+                <p>Compra simples e segura</p>
+              </Differential>
 
-              <Differential
-                icon={Package}
-                content="Embalagem mantém o café intacto"
-                backgroundColor="base-text"
-              />
+              <Differential icon={Package} backgroundColor="base-text">
+                <p>Embalagem mantém o café intacto</p>
+              </Differential>
 
-              <Differential
-                icon={Timer}
-                content="Entrega rápida e rastreada"
-                backgroundColor="yellow"
-              />
+              <Differential icon={Timer} backgroundColor="yellow">
+                <p>Entrega rápida e rastreada</p>
+              </Differential>
 
-              <Differential
-                icon={Coffee}
-                content="O café chega fresquinho até você"
-                backgroundColor="purple"
-              />
+              <Differential icon={Coffee} backgroundColor="purple">
+                <p>O café chega fresquinho até você</p>
+              </Differential>
             </ul>
           </div>
 
