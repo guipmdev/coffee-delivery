@@ -14,12 +14,9 @@ import {
   CreditCard,
   Bank,
   Money,
-  Plus,
-  Minus,
-  Trash,
 } from '@phosphor-icons/react'
 
-import Expresso from '../../assets/expresso.svg'
+import { CoffeeCard } from './components/CoffeeCard'
 
 export function Checkout() {
   return (
@@ -94,34 +91,7 @@ export function Checkout() {
 
         <Summary>
           <ul>
-            <li>
-              <img src={Expresso} alt="" />
-
-              <div>
-                <strong>Expresso Tradicional</strong>
-
-                <div>
-                  <div>
-                    <button title="Aumentar quantidade desejada">
-                      <Minus />
-                    </button>
-                    <span>1</span>
-                    <button title="Diminuir quantidade desejada">
-                      <Plus />
-                    </button>
-                  </div>
-
-                  <button>
-                    <Trash />
-                    REMOVER
-                  </button>
-                </div>
-              </div>
-
-              <span>
-                <strong>9,90</strong>
-              </span>
-            </li>
+            <CoffeeCard />
           </ul>
 
           <div>

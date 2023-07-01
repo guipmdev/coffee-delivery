@@ -101,34 +101,3 @@ export const Buy = styled.div`
     }
   }
 `
-
-export const QuantitySelector = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.25rem;
-
-  background: ${(props) => props.theme['base-button']};
-
-  padding: 0.5rem;
-  border-radius: 6px;
-
-  span {
-    color: ${(props) => props.theme['base-title']};
-    font: ${(props) => props.theme['text-m']};
-    line-height: 0;
-    padding: 0 0.5rem;
-  }
-
-  button {
-    background: transparent;
-
-    border: none;
-
-    color: ${(props) => props.theme.purple};
-
-    &:hover {
-      color: ${(props) => props.theme['purple-dark']};
-    }
-  }
-`

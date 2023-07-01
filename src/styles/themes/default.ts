@@ -29,8 +29,10 @@ export const defaultTheme = {
   'title-xs': '700 1.125rem / 130% "Baloo 2", sans-serif',
 
   // Roboto
-  'text-l': '700 1.25rem / 130% "Roboto", sans-serif',
+  'text-l': '400 1.25rem / 130% "Roboto", sans-serif',
+  'text-l-bold': '700 1.25rem / 130% "Roboto", sans-serif',
   'text-m': '400 1rem / 130% "Roboto", sans-serif',
+  'text-m-bold': '700 1rem / 130% "Roboto", sans-serif',
   'text-s': '400 0.875rem / 130% "Roboto", sans-serif',
   'text-xs': '700 0.75rem / 130% "Roboto", sans-serif',
 

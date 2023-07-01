@@ -1,6 +1,8 @@
-import { CoffeeCardContainer, Buy, QuantitySelector } from './styles'
+import { CoffeeCardContainer, Buy } from './styles'
 
-import { ShoppingCart, Plus, Minus } from '@phosphor-icons/react'
+import { ShoppingCart } from '@phosphor-icons/react'
+
+import { QuantitySelector } from '../../../../components/QuantitySelector'
 
 import Expresso from '../../../../assets/expresso.svg'
 
@@ -24,15 +26,7 @@ export function CoffeeCard() {
         </span>
 
         <div className="buy-actions">
-          <QuantitySelector>
-            <button title="Aumentar quantidade desejada">
-              <Minus size={14} weight="bold" />
-            </button>
-            <span>1</span>
-            <button title="Diminuir quantidade desejada">
-              <Plus size={14} weight="bold" />
-            </button>
-          </QuantitySelector>
+          <QuantitySelector />
 
           <button title="Adicionar ao carrinho">
             <ShoppingCart size={22} weight="fill" />
