@@ -5,6 +5,7 @@ export const CoffeeCardContainer = styled.li`
   grid-template-columns: auto auto 1fr;
   gap: 1.25rem;
   list-style: none;
+  padding: 0.5rem 0.25rem;
 
   img {
     width: 100%;
