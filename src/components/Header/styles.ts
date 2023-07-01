@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import { styled, css } from 'styled-components'
 
 export const HeaderContainer = styled.header`
@@ -18,6 +19,11 @@ export const HeaderContainer = styled.header`
     gap: 0.75rem;
     min-width: 0px;
   }
+
+  & > a {
+    text-decoration: none;
+    line-height: 0;
+  }
 `
 
 interface HeaderButtonProps {
@@ -26,7 +32,9 @@ interface HeaderButtonProps {
   hasText?: boolean
 }
 
-export const ActionButton = styled.button<HeaderButtonProps>`
+export const ActionButton = styled(NavLink)<HeaderButtonProps>`
+  text-decoration: none;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,6 +61,7 @@ export const ActionButton = styled.button<HeaderButtonProps>`
       overflow: hidden;
 
       span {
+        line-height: initial;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
