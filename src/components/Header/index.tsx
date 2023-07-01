@@ -10,11 +10,12 @@ export function Header() {
       <img src={CoffeeDeliveryLogo} alt="" />
 
       <nav>
-        <ActionButton mainColor="purple" title="Local">
-          <MapPin size={22} weight="fill" /> Porto Alegre, RS
+        <ActionButton mainColor="purple" title="Local" hasText>
+          <MapPin size={22} weight="fill" />
+          <span>Porto Alegre, RS</span>
         </ActionButton>
 
-        <ActionButton mainColor="yellow" hasPill title="Carrinho">
+        <ActionButton mainColor="yellow" title="Carrinho" hasPill>
           <ShoppingCart size={22} weight="fill" />
           <span>3</span>
         </ActionButton>

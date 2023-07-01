@@ -15,7 +15,7 @@ export const CoffeeCardContainer = styled.li`
   padding: 1.25rem;
   border-radius: 6px 36px;
 
-  & > img {
+  img {
     margin-top: calc((2.5rem) * -1);
 
     max-width: 120px;
@@ -26,7 +26,7 @@ export const CoffeeCardContainer = styled.li`
     display: flex;
     gap: 0.25rem;
 
-    & > span {
+    span {
       color: ${(props) => props.theme['yellow-dark']};
       font: ${(props) => props.theme.tag};
 
@@ -44,12 +44,12 @@ export const CoffeeCardContainer = styled.li`
 
     text-align: center;
 
-    & > strong {
+    strong {
       color: ${(props) => props.theme['base-subtitle']};
       font: ${(props) => props.theme['title-s']};
     }
 
-    & > p {
+    p {
       color: ${(props) => props.theme['base-label']};
       font: ${(props) => props.theme['text-s']};
     }
@@ -65,15 +65,9 @@ export const Buy = styled.div`
   & > span {
     font: ${(props) => props.theme['text-s']};
 
-    & > strong {
+    strong {
       font: ${(props) => props.theme['title-m']};
     }
-  }
-
-  .buy-actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.5rem;
   }
 
   button {
@@ -89,15 +83,21 @@ export const Buy = styled.div`
     transition: color 0.1s, background-color 0.1s;
   }
 
-  .buy-actions > button {
-    padding: 0.5rem;
-    border-radius: 6px;
+  .buy-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
 
-    background: ${(props) => props.theme['purple-dark']};
-    color: ${(props) => props.theme.white};
+    & > button {
+      padding: 0.5rem;
+      border-radius: 6px;
 
-    &:hover {
-      background: ${(props) => props.theme.purple};
+      background: ${(props) => props.theme['purple-dark']};
+      color: ${(props) => props.theme.white};
+
+      &:hover {
+        background: ${(props) => props.theme.purple};
+      }
     }
   }
 `
@@ -113,12 +113,14 @@ export const QuantitySelector = styled.div`
   padding: 0.5rem;
   border-radius: 6px;
 
-  & > span {
+  span {
     color: ${(props) => props.theme['base-title']};
     font: ${(props) => props.theme['text-m']};
+    line-height: 0;
+    padding: 0 0.5rem;
   }
 
-  & > button {
+  button {
     background: transparent;
 
     border: none;
