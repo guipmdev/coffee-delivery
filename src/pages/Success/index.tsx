@@ -28,7 +28,11 @@ export function Success() {
             </p>
           </Differential>
 
-          <Differential icon={CurrencyDollar} backgroundColor="yellow-dark">
+          <Differential
+            icon={CurrencyDollar}
+            backgroundColor="yellow-dark"
+            weight="regular"
+          >
             <p>Pagamento na entrega</p>
             <p>
               <strong>Cartão de Crédito</strong>
