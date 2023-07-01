@@ -10,7 +10,7 @@ export const HomeContainer = styled.main`
 
 export const Intro = styled.section`
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: minmax(auto, 588px) 1fr;
   gap: 3.5rem;
 
   max-width: ${(props) => props.theme['max-width']};
@@ -19,7 +19,8 @@ export const Intro = styled.section`
 
   img {
     width: 100%;
-    min-width: 238px;
+    height: 100%;
+    min-width: calc(0.6 * 476px);
     max-width: 476px;
     margin: 0 auto;
   }

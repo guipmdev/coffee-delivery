@@ -1,4 +1,12 @@
-import { CheckoutContainer } from './styles'
+import {
+  CheckoutContainer,
+  Address,
+  Payment,
+  Summary,
+  Input,
+  FormInfo,
+  Select,
+} from './styles'
 
 import {
   MapPinLine,
@@ -19,72 +27,72 @@ export function Checkout() {
       <section>
         <h2>Complete seu pedido</h2>
 
-        <div>
-          <div>
+        <Address>
+          <FormInfo iconColor="yellow-dark">
+            <MapPinLine size={22} />
             <div>
-              <MapPinLine />
-              <div>
-                <p>Endereço de Entrega</p>
-                <p>Informe o endereço onde deseja receber seu pedido</p>
-              </div>
+              <h3>Endereço de Entrega</h3>
+              <p>Informe o endereço onde deseja receber seu pedido</p>
             </div>
-          </div>
+          </FormInfo>
 
           <form>
-            <input type="text" placeholder="CEP" />
-            <input type="text" placeholder="Rua" />
+            <Input type="text" placeholder="CEP" width={200} />
+            <Input type="text" placeholder="Rua" />
 
             <div>
-              <input type="text" placeholder="Número" />
-              <input type="text" placeholder="Complemento" />
+              <Input type="text" placeholder="Número" width={200} />
+              <Input type="text" placeholder="Complemento" />
             </div>
 
             <div>
-              <input type="text" placeholder="Bairro" />
-              <input type="text" placeholder="Cidade" />
-              <input type="text" placeholder="UF" />
+              <Input type="text" placeholder="Bairro" width={200} />
+              <Input type="text" placeholder="Cidade" />
+              <Input type="text" placeholder="UF" width={60} />
             </div>
           </form>
-        </div>
+        </Address>
 
-        <div>
-          <div>
+        <Payment>
+          <FormInfo iconColor="purple">
+            <CurrencyDollar size={22} />
             <div>
-              <CurrencyDollar />
-              <div>
-                <p>Pagamento</p>
-                <p>
-                  O pagamento é feito na entrega. Escolha a forma que deseja
-                  pagar
-                </p>
-              </div>
+              <h3>Pagamento</h3>
+              <p>
+                O pagamento é feito na entrega. Escolha a forma que deseja pagar
+              </p>
             </div>
+          </FormInfo>
 
-            <div>
+          <div className="payment-options">
+            <Select>
               <input type="radio" name="payment-method" id="credit-card" />
               <label htmlFor="credit-card">
-                <CreditCard /> CARTÃO DE CRÉDITO
+                <CreditCard size={16} /> CARTÃO DE CRÉDITO
               </label>
+            </Select>
 
+            <Select>
               <input type="radio" name="payment-method" id="debit-card" />
               <label htmlFor="debit-card">
-                <Bank /> CARTÃO DE DÉBITO
+                <Bank size={16} /> CARTÃO DE DÉBITO
               </label>
+            </Select>
 
+            <Select>
               <input type="radio" name="payment-method" id="money" />
               <label htmlFor="money">
-                <Money />
-                DINHEIRO
+                <Money size={16} /> DINHEIRO
               </label>
-            </div>
+            </Select>
           </div>
-        </div>
+        </Payment>
       </section>
 
       <section>
         <h2>Cafés selecionados</h2>
 
-        <div>
+        <Summary>
           <ul>
             <li>
               <img src={Expresso} alt="" />
@@ -131,7 +139,7 @@ export function Checkout() {
           </div>
 
           <button>CONFIRMAR PEDIDO</button>
-        </div>
+        </Summary>
       </section>
     </CheckoutContainer>
   )

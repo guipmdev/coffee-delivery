@@ -24,9 +24,9 @@ export const SuccessContainer = styled.main`
 
     img {
       width: 100%;
+      height: 100%;
       min-width: calc(0.55 * 492px);
       max-width: 492px;
-      height: 100%;
 
       margin: 0 auto;
     }
