@@ -55,6 +55,7 @@ export const FormInfo = styled.div<FormInfoProps>`
 
   svg {
     color: ${(props) => props.iconColor && props.theme[props.iconColor]};
+    min-width: fit-content;
   }
 `
 
@@ -69,6 +70,16 @@ export const Address = styled(BaseDiv)`
       gap: 0.75rem;
 
       width: 100%;
+    }
+  }
+
+  @media (max-width: 525px) {
+    form div {
+      flex-direction: column;
+    }
+
+    input {
+      max-width: 100%;
     }
   }
 `
@@ -100,7 +111,13 @@ export const Input = styled.input<InputProps>`
 export const Payment = styled(BaseDiv)`
   .payment-options {
     display: flex;
-    gap: 12px;
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 758px) {
+    .payment-options {
+      flex-direction: column;
+    }
   }
 `
 
@@ -145,7 +162,62 @@ export const Select = styled.div`
 `
 
 export const Summary = styled(BaseDiv)`
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 
   border-radius: 6px, 44px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  hr {
+    background-color: ${(props) => props.theme['base-button']};
+    height: 1px;
+    border: 0;
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8438rem;
+
+    p,
+    strong {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    p {
+      font: ${(props) => props.theme['text-s']};
+
+      span {
+        font: ${(props) => props.theme['text-m']};
+      }
+    }
+
+    strong {
+      color: ${(props) => props.theme['base-subtitle']};
+      font: ${(props) => props.theme['text-l-bold']};
+    }
+  }
+
+  & > button {
+    background: ${(props) => props.theme.yellow};
+    color: ${(props) => props.theme.white};
+    border: none;
+    padding: 0.75rem 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font: ${(props) => props.theme['button-g']};
+
+    transition: 0.1s background-color;
+
+    &:hover {
+      background: ${(props) => props.theme['yellow-dark']};
+    }
+  }
 `

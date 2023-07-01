@@ -8,9 +8,7 @@ export const CoffeeCardContainer = styled.li`
   padding: 0.5rem 0.25rem;
 
   img {
-    width: 100%;
-    max-width: 64px;
-    max-height: auto;
+    width: 64px;
   }
 
   .info {
@@ -55,13 +53,13 @@ export const CoffeeCardContainer = styled.li`
     font: ${(props) => props.theme['text-m-bold']};
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 525px) {
     display: flex;
     flex-direction: column;
     align-items: center;
 
     img {
-      max-width: 96px;
+      width: 96px;
     }
   }
 `

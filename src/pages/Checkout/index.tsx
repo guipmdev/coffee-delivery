@@ -92,7 +92,10 @@ export function Checkout() {
         <Summary>
           <ul>
             <CoffeeCard />
+            <CoffeeCard />
           </ul>
+
+          <hr />
 
           <div>
             <p>
@@ -101,14 +104,12 @@ export function Checkout() {
             <p>
               Entrega <span>R$ 3,50</span>
             </p>
-            <p>
-              <strong>
-                Total <span>R$ 33,20</span>
-              </strong>
-            </p>
+            <strong>
+              Total <span>R$ 33,20</span>
+            </strong>
           </div>
 
-          <button>CONFIRMAR PEDIDO</button>
+          <button type="submit">CONFIRMAR PEDIDO</button>
         </Summary>
       </section>
     </CheckoutContainer>
