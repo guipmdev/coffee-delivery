@@ -25,7 +25,7 @@ export function Checkout() {
         <h2>Complete seu pedido</h2>
 
         <Address>
-          <FormInfo iconColor="yellow-dark">
+          <FormInfo $iconColor="yellow-dark">
             <MapPinLine size={22} />
             <div>
               <h3>Endereço de Entrega</h3>
@@ -34,24 +34,24 @@ export function Checkout() {
           </FormInfo>
 
           <form>
-            <Input type="text" placeholder="CEP" width={200} />
+            <Input type="text" placeholder="CEP" $width={200} />
             <Input type="text" placeholder="Rua" />
 
             <div>
-              <Input type="text" placeholder="Número" width={200} />
+              <Input type="text" placeholder="Número" $width={200} />
               <Input type="text" placeholder="Complemento" />
             </div>
 
             <div>
-              <Input type="text" placeholder="Bairro" width={200} />
+              <Input type="text" placeholder="Bairro" $width={200} />
               <Input type="text" placeholder="Cidade" />
-              <Input type="text" placeholder="UF" width={60} />
+              <Input type="text" placeholder="UF" $width={60} />
             </div>
           </form>
         </Address>
 
         <Payment>
-          <FormInfo iconColor="purple">
+          <FormInfo $iconColor="purple">
             <CurrencyDollar size={22} />
             <div>
               <h3>Pagamento</h3>

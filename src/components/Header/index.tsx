@@ -13,16 +13,16 @@ export function Header() {
       </NavLink>
 
       <nav>
-        <ActionButton to="" mainColor="purple" title="Local" hasText>
+        <ActionButton to="" $mainColor="purple" title="Local" $hasText>
           <MapPin size={22} weight="fill" />
           <span>Porto Alegre, RS</span>
         </ActionButton>
 
         <ActionButton
           to="/checkout"
-          mainColor="yellow"
+          $mainColor="yellow"
           title="Carrinho"
-          hasPill
+          $hasPill
         >
           <ShoppingCart size={22} weight="fill" />
           <span>3</span>

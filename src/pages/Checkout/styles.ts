@@ -34,7 +34,7 @@ const BaseDiv = styled.div`
 `
 
 interface FormInfoProps {
-  iconColor?: string
+  $iconColor?: string
 }
 
 export const FormInfo = styled.div<FormInfoProps>`
@@ -54,7 +54,7 @@ export const FormInfo = styled.div<FormInfoProps>`
   }
 
   svg {
-    color: ${(props) => props.iconColor && props.theme[props.iconColor]};
+    color: ${(props) => props.$iconColor && props.theme[props.$iconColor]};
 
     min-width: fit-content;
   }
@@ -86,13 +86,13 @@ export const Address = styled(BaseDiv)`
 `
 
 interface InputProps {
-  width?: number
+  $width?: number
 }
 
 export const Input = styled.input<InputProps>`
   background: ${(props) => props.theme['base-input']};
   width: 100%;
-  max-width: ${(props) => props.width}px;
+  max-width: ${(props) => props.$width}px;
 
   padding: 0.75rem;
   border: 1px solid ${(props) => props.theme['base-button']};

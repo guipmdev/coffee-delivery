@@ -17,7 +17,7 @@ export function Differential({
   ...props
 }: DifferentialProps) {
   return (
-    <DifferentialContainer backgroundColor={backgroundColor}>
+    <DifferentialContainer $backgroundColor={backgroundColor}>
       <span>
         <CustomIcon size={16} weight="fill" {...props} />
       </span>

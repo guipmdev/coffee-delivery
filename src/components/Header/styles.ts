@@ -29,9 +29,9 @@ export const HeaderContainer = styled.header`
 `
 
 interface HeaderButtonProps {
-  mainColor: 'purple' | 'yellow'
-  hasPill?: boolean
-  hasText?: boolean
+  $mainColor: 'purple' | 'yellow'
+  $hasPill?: boolean
+  $hasText?: boolean
 }
 
 export const ActionButton = styled(NavLink)<HeaderButtonProps>`
@@ -39,13 +39,13 @@ export const ActionButton = styled(NavLink)<HeaderButtonProps>`
   justify-content: center;
   align-items: center;
 
-  background: ${(props) => props.theme[`${props.mainColor}-light`]};
+  background: ${(props) => props.theme[`${props.$mainColor}-light`]};
 
   padding: 0.5rem;
   border: none;
   border-radius: 6px;
 
-  color: ${(props) => props.theme[`${props.mainColor}-dark`]};
+  color: ${(props) => props.theme[`${props.$mainColor}-dark`]};
   font: ${(props) => props.theme['text-s']};
   text-decoration: none;
 
@@ -54,7 +54,7 @@ export const ActionButton = styled(NavLink)<HeaderButtonProps>`
   transition: color 0.1s, background-color 0.1s;
 
   ${(props) =>
-    props.hasText &&
+    props.$hasText &&
     css`
       justify-content: flex-start;
       gap: 0.25rem;
@@ -75,7 +75,7 @@ export const ActionButton = styled(NavLink)<HeaderButtonProps>`
   }
 
   &:hover {
-    background: ${(props) => props.theme[props.mainColor]};
+    background: ${(props) => props.theme[props.$mainColor]};
 
     &,
     svg {
@@ -84,7 +84,7 @@ export const ActionButton = styled(NavLink)<HeaderButtonProps>`
   }
 
   ${(props) =>
-    props.hasPill &&
+    props.$hasPill &&
     css`
       position: relative;
 
@@ -97,7 +97,7 @@ export const ActionButton = styled(NavLink)<HeaderButtonProps>`
         right: -0.625rem;
         top: -0.625rem;
 
-        background: ${props.theme[`${props.mainColor}-dark`]};
+        background: ${props.theme[`${props.$mainColor}-dark`]};
         width: 1.25rem;
         height: 1.25rem;
 
