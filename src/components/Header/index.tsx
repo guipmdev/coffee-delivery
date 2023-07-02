@@ -1,9 +1,11 @@
 import { ActionButton, HeaderContainer } from './styles'
 
+import { NavLink } from 'react-router-dom'
 import { MapPin, ShoppingCart } from '@phosphor-icons/react'
 
 import CoffeeDeliveryLogo from '../../assets/coffee-delivery-logo.svg'
-import { NavLink } from 'react-router-dom'
+
+import { order } from '../../pages/Home'
 
 export function Header() {
   return (
@@ -13,7 +15,7 @@ export function Header() {
       </NavLink>
 
       <nav>
-        <ActionButton to="" $mainColor="purple" title="Local" $hasText>
+        <ActionButton to="#" $mainColor="purple" title="Local" $hasText>
           <MapPin size={22} weight="fill" />
           <span>Porto Alegre, RS</span>
         </ActionButton>
@@ -25,7 +27,7 @@ export function Header() {
           $hasPill
         >
           <ShoppingCart size={22} weight="fill" />
-          <span>3</span>
+          <span>{order.totalQuantity}</span>
         </ActionButton>
       </nav>
     </HeaderContainer>

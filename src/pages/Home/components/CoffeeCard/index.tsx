@@ -2,27 +2,42 @@ import { CoffeeCardContainer, Buy } from './styles'
 
 import { ShoppingCart } from '@phosphor-icons/react'
 
+import { CoffeeType, coffeeTags } from '../..'
 import { QuantitySelector } from '../../../../components/QuantitySelector'
 
-import Expresso from '../../../../assets/coffees/expresso.png'
+interface CoffeeCardProps {
+  coffee: CoffeeType
+}
 
-export function CoffeeCard() {
+export function CoffeeCard({ coffee }: CoffeeCardProps) {
+  const foundCoffeeTags = coffee.tags.map((coffeeTag) =>
+    coffeeTags.find((tag) => coffeeTag === tag.id),
+  )
+
   return (
     <CoffeeCardContainer>
-      <img src={Expresso} alt="" />
+      <img src={coffee.imageURL} alt="" />
 
       <div className="tags">
-        <span>TRADICIONAL</span>
+        {foundCoffeeTags.map(
+          (tag) => tag && <span key={tag.id}>{tag.name}</span>,
+        )}
       </div>
 
       <div className="coffee-infos">
-        <strong>Expresso Tradicional</strong>
-        <p>O tradicional café feito com água quente e grãos moídos</p>
+        <strong>{coffee.name}</strong>
+        <p>{coffee.description}</p>
       </div>
 
       <Buy>
         <span>
-          R$ <strong>9,90</strong>
+          R${' '}
+          <strong>
+            {coffee.price.toLocaleString('pt-BR', {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })}
+          </strong>
         </span>
 
         <div className="buy-actions">

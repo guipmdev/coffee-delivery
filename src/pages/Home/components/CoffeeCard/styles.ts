@@ -10,7 +10,7 @@ export const CoffeeCardContainer = styled.li`
 
   background: ${(props) => props.theme['base-card']};
   width: 100%;
-  /* max-width: 256px; */
+  max-width: 256px;
 
   padding: 1.25rem;
   border-radius: 6px 36px;
@@ -34,6 +34,7 @@ export const CoffeeCardContainer = styled.li`
 
       color: ${(props) => props.theme['yellow-dark']};
       font: ${(props) => props.theme.tag};
+      text-transform: uppercase;
     }
   }
 
