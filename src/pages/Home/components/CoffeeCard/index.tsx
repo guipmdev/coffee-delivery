@@ -4,7 +4,7 @@ import { ShoppingCart } from '@phosphor-icons/react'
 
 import { QuantitySelector } from '../../../../components/QuantitySelector'
 
-import Expresso from '../../../../assets/expresso.svg'
+import Expresso from '../../../../assets/coffees/expresso.png'
 
 export function CoffeeCard() {
   return (

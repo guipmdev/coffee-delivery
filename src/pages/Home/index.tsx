@@ -5,7 +5,7 @@ import { ShoppingCart, Package, Timer, Coffee } from '@phosphor-icons/react'
 import { CoffeeCard } from './components/CoffeeCard'
 import { Differential } from '../../components/Differential'
 
-import CoffeeBanner from '../../assets/coffee-banner.svg'
+import CoffeeBanner from '../../assets/coffee-banner.png'
 
 export function Home() {
   return (
