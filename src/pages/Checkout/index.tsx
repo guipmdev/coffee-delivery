@@ -92,6 +92,9 @@ export function Checkout() {
         <Summary>
           <ul>
             <CoffeeCard />
+
+            <hr />
+
             <CoffeeCard />
           </ul>
 

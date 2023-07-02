@@ -14,6 +14,7 @@ export const Intro = styled.section`
   gap: 3.5rem;
 
   max-width: ${(props) => props.theme['max-width']};
+
   padding: 5.875rem 2rem 6.75rem;
   margin: 0 auto;
 
@@ -22,6 +23,7 @@ export const Intro = styled.section`
     height: 100%;
     min-width: calc(0.6 * 476px);
     max-width: 476px;
+
     margin: 0 auto;
   }
 
@@ -41,9 +43,7 @@ export const Intro = styled.section`
   ul {
     display: grid;
     grid-template-columns: 1fr 1.25fr;
-    grid-column-gap: 2.5rem;
-    grid-row-gap: 1.25rem;
-
+    gap: 1.25rem 2.5rem;
     align-items: center;
 
     list-style: none;
@@ -63,14 +63,15 @@ export const Intro = styled.section`
 
 export const CoffeeList = styled.section`
   max-width: ${(props) => props.theme['max-width']};
+
   padding: 0 2rem 9.8125rem;
   margin: 0 auto;
 
   h2 {
+    margin-bottom: 3.375rem;
+
     color: ${(props) => props.theme['base-subtitle']};
     font: ${(props) => props.theme['title-l']};
-
-    margin-bottom: 3.375rem;
   }
 
   ul {

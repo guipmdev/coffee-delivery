@@ -5,14 +5,14 @@ export const CheckoutContainer = styled.main`
   grid-template-columns: minmax(auto, 640px) 1fr;
   gap: 2rem;
 
+  max-width: ${(props) => props.theme['max-width']};
+
   padding: 5.875rem 2rem 6.75rem;
   margin: 0 auto;
 
-  max-width: ${(props) => props.theme['max-width']};
-
   h2 {
-    font: ${(props) => props.theme['title-xs']};
     color: ${(props) => props.theme['base-subtitle']};
+    font: ${(props) => props.theme['title-xs']};
   }
 
   section {
@@ -27,10 +27,10 @@ export const CheckoutContainer = styled.main`
   }
 `
 const BaseDiv = styled.div`
+  background: ${(props) => props.theme['base-card']};
+
   padding: 2.5rem;
   border-radius: 6px;
-
-  background: ${(props) => props.theme['base-card']};
 `
 
 interface FormInfoProps {
@@ -44,17 +44,18 @@ export const FormInfo = styled.div<FormInfoProps>`
   margin-bottom: 2rem;
 
   h3 {
-    font: ${(props) => props.theme['text-m']};
     color: ${(props) => props.theme['base-subtitle']};
+    font: ${(props) => props.theme['text-m']};
   }
 
   p {
-    font: ${(props) => props.theme['text-s']};
     color: ${(props) => props.theme['base-text']};
+    font: ${(props) => props.theme['text-s']};
   }
 
   svg {
     color: ${(props) => props.iconColor && props.theme[props.iconColor]};
+
     min-width: fit-content;
   }
 `
@@ -89,13 +90,13 @@ interface InputProps {
 }
 
 export const Input = styled.input<InputProps>`
-  padding: 0.75rem;
-  border: 1px solid ${(props) => props.theme['base-button']};
-  border-radius: 4px;
-
   background: ${(props) => props.theme['base-input']};
   width: 100%;
   max-width: ${(props) => props.width}px;
+
+  padding: 0.75rem;
+  border: 1px solid ${(props) => props.theme['base-button']};
+  border-radius: 4px;
 
   font: ${(props) => props.theme['text-s']};
 
@@ -127,36 +128,44 @@ export const Select = styled.div`
   width: 100%;
 
   input {
-    visibility: hidden;
     max-width: 0;
     max-height: 0;
+    visibility: hidden;
   }
 
   input:checked ~ label {
-    border: 1px solid ${(props) => props.theme.purple};
-
     background: ${(props) => props.theme['purple-light']};
+
+    border: 1px solid ${(props) => props.theme.purple};
   }
 
   label {
     display: flex;
     align-items: center;
 
+    background: ${(props) => props.theme['base-button']};
+    width: 100%;
+
     padding: 1rem;
     border: 1px solid transparent;
     border-radius: 6px;
 
-    background: ${(props) => props.theme['base-button']};
-    width: 100%;
-
     font: ${(props) => props.theme['button-m']};
     line-height: initial;
+
+    cursor: pointer;
+
+    transition: 0.1s background-color;
 
     svg {
       margin-right: 0.75rem;
 
       color: ${(props) => props.theme.purple};
       line-height: 0;
+    }
+
+    &:hover {
+      background: ${(props) => props.theme['base-hover']};
     }
   }
 `
@@ -171,12 +180,13 @@ export const Summary = styled(BaseDiv)`
   ul {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 1.5rem;
   }
 
   hr {
     background-color: ${(props) => props.theme['base-button']};
     height: 1px;
+
     border: 0;
   }
 
@@ -207,12 +217,15 @@ export const Summary = styled(BaseDiv)`
 
   & > button {
     background: ${(props) => props.theme.yellow};
-    color: ${(props) => props.theme.white};
-    border: none;
+
     padding: 0.75rem 0.5rem;
+    border: none;
     border-radius: 6px;
-    cursor: pointer;
+
+    color: ${(props) => props.theme.white};
     font: ${(props) => props.theme['button-g']};
+
+    cursor: pointer;
 
     transition: 0.1s background-color;
 

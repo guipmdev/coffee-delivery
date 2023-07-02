@@ -12,10 +12,11 @@ export const QuantitySelectorContainer = styled.div`
   border-radius: 6px;
 
   span {
+    padding: 0 0.5rem;
+
     color: ${(props) => props.theme['base-title']};
     font: ${(props) => props.theme['text-m']};
     line-height: 0;
-    padding: 0 0.5rem;
   }
 
   button {

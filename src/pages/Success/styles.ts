@@ -2,8 +2,9 @@ import { styled } from 'styled-components'
 
 export const SuccessContainer = styled.main`
   max-width: ${(props) => props.theme['max-width']};
-  margin: 0 auto;
+
   padding: 5rem 2rem 6.75rem;
+  margin: 0 auto;
 
   h1 {
     color: ${(props) => props.theme['yellow-dark']};
@@ -11,10 +12,10 @@ export const SuccessContainer = styled.main`
   }
 
   h1 + p {
+    margin-bottom: 2.5rem;
+
     color: ${(props) => props.theme['base-subtitle']};
     font: ${(props) => props.theme['regular-l']};
-
-    margin-bottom: 2.5rem;
   }
 
   & > div {
@@ -36,13 +37,6 @@ export const SuccessContainer = styled.main`
       flex-direction: column;
       gap: 2rem;
 
-      width: 100%;
-      height: fit-content;
-
-      padding: 2.5rem;
-      border: 1px solid transparent;
-      border-radius: 6px 36px;
-
       background: linear-gradient(
             ${(props) => `${props.theme.background}, ${props.theme.background}`}
           )
@@ -52,6 +46,12 @@ export const SuccessContainer = styled.main`
             ${(props) => `${props.theme.yellow}, ${props.theme.purple}`}
           )
           border-box;
+      width: 100%;
+      height: fit-content;
+
+      padding: 2.5rem;
+      border: 1px solid transparent;
+      border-radius: 6px 36px;
 
       list-style: none;
     }

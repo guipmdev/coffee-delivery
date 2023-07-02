@@ -7,6 +7,7 @@ export const HeaderContainer = styled.header`
   gap: 1rem;
 
   max-width: ${(props) => props.theme['max-width']};
+
   padding: 2rem;
   margin: 0 auto;
 
@@ -17,6 +18,7 @@ export const HeaderContainer = styled.header`
   nav {
     display: flex;
     gap: 0.75rem;
+
     min-width: 0px;
   }
 
@@ -33,20 +35,19 @@ interface HeaderButtonProps {
 }
 
 export const ActionButton = styled(NavLink)<HeaderButtonProps>`
-  text-decoration: none;
-
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background: ${(props) => props.theme[`${props.mainColor}-light`]};
 
   padding: 0.5rem;
   border: none;
   border-radius: 6px;
 
-  background: ${(props) => props.theme[`${props.mainColor}-light`]};
-
   color: ${(props) => props.theme[`${props.mainColor}-dark`]};
   font: ${(props) => props.theme['text-s']};
+  text-decoration: none;
 
   cursor: pointer;
 
@@ -61,8 +62,9 @@ export const ActionButton = styled(NavLink)<HeaderButtonProps>`
       overflow: hidden;
 
       span {
-        line-height: initial;
         overflow: hidden;
+
+        line-height: initial;
         white-space: nowrap;
         text-overflow: ellipsis;
       }
@@ -95,11 +97,11 @@ export const ActionButton = styled(NavLink)<HeaderButtonProps>`
         right: -0.625rem;
         top: -0.625rem;
 
+        background: ${props.theme[`${props.mainColor}-dark`]};
         width: 1.25rem;
         height: 1.25rem;
-        border-radius: 50%;
 
-        background: ${props.theme[`${props.mainColor}-dark`]};
+        border-radius: 50%;
 
         color: ${props.theme.white};
         font: ${(props) => props.theme['text-xs']};

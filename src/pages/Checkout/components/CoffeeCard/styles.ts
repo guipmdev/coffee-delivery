@@ -4,8 +4,10 @@ export const CoffeeCardContainer = styled.li`
   display: grid;
   grid-template-columns: auto auto 1fr;
   gap: 1.25rem;
-  list-style: none;
+
   padding: 0.5rem 0.25rem;
+
+  list-style: none;
 
   img {
     width: 64px;
@@ -16,8 +18,9 @@ export const CoffeeCardContainer = styled.li`
     flex-direction: column;
 
     & > span {
-      color: ${(props) => props.theme['base-subtitle']};
       margin-bottom: 0.5rem;
+
+      color: ${(props) => props.theme['base-subtitle']};
     }
 
     & > div {
@@ -27,16 +30,22 @@ export const CoffeeCardContainer = styled.li`
       & > button {
         display: flex;
         justify-content: center;
-        gap: 0.25rem;
         align-items: center;
+        gap: 0.25rem;
+
         padding: 0.5rem;
         border: none;
+        border-radius: 6px;
+
         font: ${(props) => props.theme['button-m']};
         line-height: initial;
+
         background: ${(props) => props.theme['base-button']};
-        border-radius: 6px;
+
         cursor: pointer;
+
         transition: 0.1s background-color;
+
         svg {
           color: ${(props) => props.theme.purple};
         }
@@ -50,6 +59,7 @@ export const CoffeeCardContainer = styled.li`
 
   strong {
     justify-self: flex-end;
+
     font: ${(props) => props.theme['text-m-bold']};
   }
 
