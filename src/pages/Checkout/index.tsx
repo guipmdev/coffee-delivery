@@ -147,7 +147,12 @@ export function Checkout() {
 
             <div className="payment-options">
               <Select>
-                <input type="radio" id="credit-card" value="credit-card" />
+                <input
+                  type="radio"
+                  id="credit-card"
+                  value="credit-card"
+                  {...register('paymentMethod')}
+                />
                 <label htmlFor="credit-card">
                   <CreditCard size={16} /> CARTÃO DE CRÉDITO
                 </label>
