@@ -2,16 +2,16 @@ import { CoffeeCardContainer } from './styles'
 
 import { Trash } from '@phosphor-icons/react'
 
-import { CoffeeType } from '../../../Home'
+import { Coffee } from '../../../Home'
 import { QuantitySelector } from '../../../../components/QuantitySelector'
 import { formatToCurrencyWithoutSymbol } from '../../../../utils/formatters'
 
-interface CoffeeCardType extends CoffeeType {
+interface CoffeeInfo extends Coffee {
   quantity: number
 }
 
 interface CoffeeCardProps {
-  coffee: CoffeeCardType
+  coffee: CoffeeInfo
 }
 
 export function CoffeeCard({ coffee }: CoffeeCardProps) {

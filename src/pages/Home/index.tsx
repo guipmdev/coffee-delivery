@@ -1,18 +1,23 @@
 import { HomeContainer, Intro, CoffeeList } from './styles'
 
-import { ShoppingCart, Package, Timer, Coffee } from '@phosphor-icons/react'
+import {
+  ShoppingCart,
+  Package,
+  Timer,
+  Coffee as CoffeeIcon,
+} from '@phosphor-icons/react'
 
 import { CoffeeCard } from './components/CoffeeCard'
 import { Differential } from '../../components/Differential'
 
 import CoffeeBanner from '../../assets/coffee-banner.png'
 
-export interface TagType {
+export interface Tag {
   id: string
   name: string
 }
 
-export const coffeeTags: TagType[] = [
+export const coffeeTags: Tag[] = [
   {
     id: '1',
     name: 'Tradicional',
@@ -35,7 +40,7 @@ export const coffeeTags: TagType[] = [
   },
 ]
 
-export interface CoffeeType {
+export interface Coffee {
   id: string
   imageURL: string
   tags: string[]
@@ -44,7 +49,7 @@ export interface CoffeeType {
   price: number
 }
 
-export const coffeeList: CoffeeType[] = [
+export const coffeeList: Coffee[] = [
   {
     id: '1',
     imageURL: './src/assets/coffees/expresso.png',
@@ -163,13 +168,25 @@ export const coffeeList: CoffeeType[] = [
   },
 ]
 
-export interface OrderType {
+interface Address {
+  cep: string
+  street: string
+  number: string
+  complement: string
+  neighborhood: string
+  city: string
+  state: string
+}
+
+export interface Order {
   coffees: { id: string; quantity: number }[]
   totalQuantity: number
   totalPrice: number
+  address: Address | null
+  paymentMethod: null | ('credit-card' | 'debit-card' | 'money')
 }
 
-export const order: OrderType = {
+export const order: Order = {
   coffees: [
     {
       id: '1',
@@ -186,6 +203,8 @@ export const order: OrderType = {
   ],
   totalQuantity: 8,
   totalPrice: 79.2,
+  address: null,
+  paymentMethod: null,
 }
 
 export function Home() {
@@ -213,7 +232,7 @@ export function Home() {
                 <p>Entrega rápida e rastreada</p>
               </Differential>
 
-              <Differential icon={Coffee} backgroundColor="purple">
+              <Differential icon={CoffeeIcon} backgroundColor="purple">
                 <p>O café chega fresquinho até você</p>
               </Differential>
             </ul>
