@@ -100,6 +100,8 @@ export const Input = styled.input<InputProps>`
 
   font: ${(props) => props.theme['text-s']};
 
+  transition: 0.1s border;
+
   &::placeholder {
     color: ${(props) => props.theme['base-label']};
   }
