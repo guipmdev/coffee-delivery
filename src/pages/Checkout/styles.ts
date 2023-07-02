@@ -1,29 +1,33 @@
 import { styled } from 'styled-components'
 
 export const CheckoutContainer = styled.main`
-  display: grid;
-  grid-template-columns: minmax(auto, 640px) 1fr;
-  gap: 2rem;
-
   max-width: ${(props) => props.theme['max-width']};
 
   padding: 5.875rem 2rem 6.75rem;
   margin: 0 auto;
 
-  h2 {
-    color: ${(props) => props.theme['base-subtitle']};
-    font: ${(props) => props.theme['title-xs']};
-  }
+  form {
+    display: grid;
+    grid-template-columns: minmax(auto, 640px) 1fr;
+    gap: 2rem;
 
-  section {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    h2 {
+      color: ${(props) => props.theme['base-subtitle']};
+      font: ${(props) => props.theme['title-xs']};
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
   }
 
   @media (max-width: 968px) {
-    display: flex;
-    flex-direction: column;
+    form {
+      display: flex;
+      flex-direction: column;
+    }
   }
 `
 const BaseDiv = styled.div`
@@ -61,7 +65,7 @@ export const FormInfo = styled.div<FormInfoProps>`
 `
 
 export const Address = styled(BaseDiv)`
-  form {
+  .address-forms {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -75,7 +79,7 @@ export const Address = styled(BaseDiv)`
   }
 
   @media (max-width: 525px) {
-    form div {
+    .address-forms div {
       flex-direction: column;
     }
 
@@ -129,13 +133,13 @@ export const Select = styled.div`
 
   width: 100%;
 
-  input {
-    max-width: 0;
-    max-height: 0;
+  input[type='radio'] {
     visibility: hidden;
+
+    position: absolute;
   }
 
-  input:checked ~ label {
+  input[type='radio']:checked ~ label {
     background: ${(props) => props.theme['purple-light']};
 
     border: 1px solid ${(props) => props.theme.purple};
@@ -189,7 +193,7 @@ export const Summary = styled(BaseDiv)`
     background-color: ${(props) => props.theme['base-button']};
     height: 1px;
 
-    border: 0;
+    border: none;
   }
 
   & > div {
