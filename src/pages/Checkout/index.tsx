@@ -1,3 +1,5 @@
+import React from 'react'
+
 import {
   CheckoutContainer,
   Address,
@@ -17,8 +19,26 @@ import {
 } from '@phosphor-icons/react'
 
 import { CoffeeCard } from './components/CoffeeCard'
+import { coffeeList, order } from '../Home'
+import { formatToCurrencyWithoutSymbol } from '../../utils/formatters'
 
 export function Checkout() {
+  const foundCoffees = order.coffees.map((coffee) => ({
+    ...coffeeList.find((coffeeItem) => coffeeItem.id === coffee.id)!,
+    quantity: coffee.quantity,
+  }))
+
+  let totalPrice = 0
+  const deliveryCost = 3.5
+  let totalPriceWithDelivery = 0
+
+  if (foundCoffees.length) {
+    totalPrice = foundCoffees.reduce((acc, current) => {
+      return acc + current.price * current.quantity
+    }, 0)
+    totalPriceWithDelivery = totalPrice + deliveryCost
+  }
+
   return (
     <CheckoutContainer>
       <section>
@@ -91,24 +111,33 @@ export function Checkout() {
 
         <Summary>
           <ul>
-            <CoffeeCard />
-
-            <hr />
-
-            <CoffeeCard />
+            {foundCoffees.map(
+              (coffee, index) =>
+                coffee && (
+                  <React.Fragment key={coffee.id}>
+                    <CoffeeCard coffee={coffee} />
+                    {foundCoffees.length !== index + 1 && <hr />}
+                  </React.Fragment>
+                ),
+            )}
           </ul>
 
           <hr />
 
           <div>
             <p>
-              Total de itens <span>R$ 29,70</span>
+              Total de itens{' '}
+              <span>R$ {formatToCurrencyWithoutSymbol(totalPrice)}</span>
             </p>
             <p>
-              Entrega <span>R$ 3,50</span>
+              Entrega{' '}
+              <span>R$ {formatToCurrencyWithoutSymbol(deliveryCost)}</span>
             </p>
             <strong>
-              Total <span>R$ 33,20</span>
+              Total{' '}
+              <span>
+                R$ {formatToCurrencyWithoutSymbol(totalPriceWithDelivery)}
+              </span>
             </strong>
           </div>
 

@@ -164,23 +164,23 @@ export const coffeeList: CoffeeType[] = [
 ]
 
 export interface OrderType {
-  products: { productId: string; quantity: number }[]
+  coffees: { id: string; quantity: number }[]
   totalQuantity: number
   totalPrice: number
 }
 
 export const order: OrderType = {
-  products: [
+  coffees: [
     {
-      productId: '1',
+      id: '1',
       quantity: 1,
     },
     {
-      productId: '2',
+      id: '2',
       quantity: 2,
     },
     {
-      productId: '3',
+      id: '3',
       quantity: 3,
     },
   ],

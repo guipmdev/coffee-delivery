@@ -4,14 +4,15 @@ import { ShoppingCart } from '@phosphor-icons/react'
 
 import { CoffeeType, coffeeTags } from '../..'
 import { QuantitySelector } from '../../../../components/QuantitySelector'
+import { formatToCurrencyWithoutSymbol } from '../../../../utils/formatters'
 
 interface CoffeeCardProps {
   coffee: CoffeeType
 }
 
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
-  const foundCoffeeTags = coffee.tags.map((coffeeTag) =>
-    coffeeTags.find((tag) => coffeeTag === tag.id),
+  const foundCoffeeTags = coffee.tags.map((tag) =>
+    coffeeTags.find((coffeeTag) => coffeeTag.id === tag),
   )
 
   return (
@@ -31,13 +32,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
 
       <Buy>
         <span>
-          R${' '}
-          <strong>
-            {coffee.price.toLocaleString('pt-BR', {
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-            })}
-          </strong>
+          R$ <strong>{formatToCurrencyWithoutSymbol(coffee.price)}</strong>
         </span>
 
         <div className="buy-actions">

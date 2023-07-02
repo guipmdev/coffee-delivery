@@ -2,20 +2,28 @@ import { CoffeeCardContainer } from './styles'
 
 import { Trash } from '@phosphor-icons/react'
 
+import { CoffeeType } from '../../../Home'
 import { QuantitySelector } from '../../../../components/QuantitySelector'
+import { formatToCurrencyWithoutSymbol } from '../../../../utils/formatters'
 
-import Expresso from '../../../../assets/coffees/expresso.png'
+interface CoffeeCardType extends CoffeeType {
+  quantity: number
+}
 
-export function CoffeeCard() {
+interface CoffeeCardProps {
+  coffee: CoffeeCardType
+}
+
+export function CoffeeCard({ coffee }: CoffeeCardProps) {
   return (
     <CoffeeCardContainer>
-      <img src={Expresso} alt="" />
+      <img src={coffee.imageURL} alt="" />
 
       <div className="info">
-        <span>Expresso Tradicional</span>
+        <span>{coffee.name}</span>
 
         <div>
-          <QuantitySelector />
+          <QuantitySelector currentQuantity={coffee.quantity} />
 
           <button>
             <Trash size={16} />
@@ -24,7 +32,7 @@ export function CoffeeCard() {
         </div>
       </div>
 
-      <strong>R$ 9,90</strong>
+      <strong>R$ {formatToCurrencyWithoutSymbol(coffee.price)}</strong>
     </CoffeeCardContainer>
   )
 }
