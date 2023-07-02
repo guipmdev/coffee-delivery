@@ -23,7 +23,7 @@ export const CheckoutContainer = styled.main`
 
   @media (max-width: 968px) {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 `
 const BaseDiv = styled.div`
