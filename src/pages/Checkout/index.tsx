@@ -15,7 +15,7 @@ import {
   Money,
 } from '@phosphor-icons/react'
 
-import React from 'react'
+import React, { useContext } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import * as zod from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -24,7 +24,8 @@ import { formatToCurrencyWithoutSymbol } from '../../utils/formatters'
 
 import { CoffeeCard } from './components/CoffeeCard'
 import { Input } from './components/Input'
-import { coffeeList, order } from '../Home'
+import { order } from '../Home'
+import { CoffeeContext } from '../../contexts/CoffeeContext'
 
 const newOrderFormValidationSchema = zod.object({
   address: zod.object({
@@ -52,6 +53,8 @@ const newOrderFormValidationSchema = zod.object({
 type NewOrderFormData = zod.infer<typeof newOrderFormValidationSchema>
 
 export function Checkout() {
+  const { coffeeList } = useContext(CoffeeContext)
+
   const foundCoffees = order.coffees.map((coffee) => ({
     ...coffeeList.find((coffeeItem) => coffeeItem.id === coffee.id)!,
     quantity: coffee.quantity,

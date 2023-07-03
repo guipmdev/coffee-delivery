@@ -9,5 +9,5 @@ interface OrderContextProps {
 }
 
 export function OrderContextProvider({ children }: OrderContextProps) {
-  return <OrderContext.Provider value={}>{children}</OrderContext.Provider>
+  return <OrderContext.Provider value={{}}>{children}</OrderContext.Provider>
 }

@@ -2,15 +2,18 @@ import { CoffeeCardContainer, Buy } from './styles'
 
 import { ShoppingCart } from '@phosphor-icons/react'
 
-import { Coffee, coffeeTags } from '../..'
 import { QuantitySelector } from '../../../../components/QuantitySelector'
 import { formatToCurrencyWithoutSymbol } from '../../../../utils/formatters'
+import { Coffee, CoffeeContext } from '../../../../contexts/CoffeeContext'
+import { useContext } from 'react'
 
 interface CoffeeCardProps {
   coffee: Coffee
 }
 
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
+  const { coffeeTags } = useContext(CoffeeContext)
+
   const foundCoffeeTags = coffee.tags.map((tag) =>
     coffeeTags.find((coffeeTag) => coffeeTag.id === tag),
   )
