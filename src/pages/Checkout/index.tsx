@@ -3,7 +3,6 @@ import {
   Address,
   Payment,
   Summary,
-  Input,
   FormInfo,
   Select,
 } from './styles'
@@ -17,26 +16,37 @@ import {
 } from '@phosphor-icons/react'
 
 import React from 'react'
-import { useForm } from 'react-hook-form'
+import { useForm, FormProvider } from 'react-hook-form'
 import * as zod from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { formatToCurrencyWithoutSymbol } from '../../utils/formatters'
 
 import { CoffeeCard } from './components/CoffeeCard'
+import { Input } from './components/Input'
 import { coffeeList, order } from '../Home'
 
 const newOrderFormValidationSchema = zod.object({
   address: zod.object({
-    cep: zod.string(),
-    street: zod.string(),
-    number: zod.string(),
+    cep: zod
+      .string()
+      .nonempty({ message: 'Este campo é obrigatório' })
+      .max(8, { message: 'CEP inválido' }),
+    street: zod.string().nonempty({ message: 'Este campo é obrigatório' }),
+    number: zod.string().nonempty({ message: 'Este campo é obrigatório' }),
     complement: zod.string(),
-    neighborhood: zod.string(),
-    city: zod.string(),
-    state: zod.string(),
+    neighborhood: zod
+      .string()
+      .nonempty({ message: 'Este campo é obrigatório' }),
+    city: zod.string().nonempty({ message: 'Este campo é obrigatório' }),
+    state: zod
+      .string()
+      .nonempty({ message: 'Este campo é obrigatório' })
+      .max(2, { message: 'Apenas a sigla do estado' }),
   }),
-  paymentMethod: zod.string(),
+  paymentMethod: zod.string({
+    invalid_type_error: 'Forma de pagamento é obrigatória',
+  }),
 })
 
 type NewOrderFormData = zod.infer<typeof newOrderFormValidationSchema>
@@ -62,7 +72,12 @@ export function Checkout() {
     resolver: zodResolver(newOrderFormValidationSchema),
   })
 
-  const { handleSubmit, reset, register } = newOrderForm
+  const {
+    handleSubmit,
+    reset,
+    register,
+    formState: { errors },
+  } = newOrderForm
 
   function handleCreateNewOrder(data: NewOrderFormData) {
     console.log(data)
@@ -85,51 +100,62 @@ export function Checkout() {
             </FormInfo>
 
             <div className="address-forms">
-              <Input
-                type="text"
-                placeholder="CEP"
-                $width={200}
-                {...register('address.cep')}
-              />
-              <Input
-                type="text"
-                placeholder="Rua"
-                {...register('address.street')}
-              />
-
-              <div>
+              <FormProvider {...newOrderForm}>
                 <Input
                   type="text"
-                  placeholder="Número"
+                  placeholder="CEP"
+                  maxLength={8}
                   $width={200}
-                  {...register('address.number')}
+                  errors={errors.address?.cep}
+                  name="address.cep"
                 />
                 <Input
                   type="text"
-                  placeholder="Complemento"
-                  {...register('address.complement')}
+                  placeholder="Rua"
+                  errors={errors.address?.street}
+                  name="address.street"
                 />
-              </div>
 
-              <div>
-                <Input
-                  type="text"
-                  placeholder="Bairro"
-                  $width={200}
-                  {...register('address.neighborhood')}
-                />
-                <Input
-                  type="text"
-                  placeholder="Cidade"
-                  {...register('address.city')}
-                />
-                <Input
-                  type="text"
-                  placeholder="UF"
-                  $width={60}
-                  {...register('address.state')}
-                />
-              </div>
+                <div className="input-group">
+                  <Input
+                    type="text"
+                    placeholder="Número"
+                    $width={200}
+                    errors={errors.address?.number}
+                    name="address.number"
+                  />
+                  <Input
+                    type="text"
+                    placeholder="Complemento"
+                    name="address.complement"
+                    optional
+                  />
+                </div>
+
+                <div className="input-group">
+                  <Input
+                    type="text"
+                    placeholder="Bairro"
+                    $width={200}
+                    errors={errors.address?.neighborhood}
+                    name="address.neighborhood"
+                  />
+                  <Input
+                    type="text"
+                    placeholder="Cidade"
+                    errors={errors.address?.city}
+                    name="address.city"
+                  />
+                  <Input
+                    type="text"
+                    placeholder="UF"
+                    maxLength={2}
+                    $width={60}
+                    errors={errors.address?.state}
+                    name="address.state"
+                  />
+                </div>
+              </FormProvider>
             </div>
           </Address>
 
@@ -146,7 +172,7 @@ export function Checkout() {
             </FormInfo>
 
             <div className="payment-options">
-              <Select>
+              <Select $invalid={!!errors.paymentMethod}>
                 <input
                   type="radio"
                   id="credit-card"
@@ -158,7 +184,7 @@ export function Checkout() {
                 </label>
               </Select>
 
-              <Select>
+              <Select $invalid={!!errors.paymentMethod}>
                 <input
                   type="radio"
                   id="debit-card"
@@ -170,7 +196,7 @@ export function Checkout() {
                 </label>
               </Select>
 
-              <Select>
+              <Select $invalid={!!errors.paymentMethod}>
                 <input
                   type="radio"
                   id="money"

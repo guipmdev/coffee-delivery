@@ -1,4 +1,4 @@
-import { styled } from 'styled-components'
+import { css, styled } from 'styled-components'
 
 export const CheckoutContainer = styled.main`
   max-width: ${(props) => props.theme['max-width']};
@@ -69,49 +69,19 @@ export const Address = styled(BaseDiv)`
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+  }
 
-    div {
-      display: flex;
-      gap: 0.75rem;
+  .input-group {
+    display: flex;
+    gap: 0.75rem;
 
-      width: 100%;
-    }
+    width: 100%;
   }
 
   @media (max-width: 525px) {
-    .address-forms div {
+    .input-group {
       flex-direction: column;
     }
-
-    input {
-      max-width: 100%;
-    }
-  }
-`
-
-interface InputProps {
-  $width?: number
-}
-
-export const Input = styled.input<InputProps>`
-  background: ${(props) => props.theme['base-input']};
-  width: 100%;
-  max-width: ${(props) => props.$width}px;
-
-  padding: 0.75rem;
-  border: 1px solid ${(props) => props.theme['base-button']};
-  border-radius: 4px;
-
-  font: ${(props) => props.theme['text-s']};
-
-  transition: 0.1s border;
-
-  &::placeholder {
-    color: ${(props) => props.theme['base-label']};
-  }
-
-  &:focus {
-    border: 1px solid ${(props) => props.theme['yellow-dark']};
   }
 `
 
@@ -128,7 +98,11 @@ export const Payment = styled(BaseDiv)`
   }
 `
 
-export const Select = styled.div`
+interface SelectProps {
+  $invalid?: boolean
+}
+
+export const Select = styled.div<SelectProps>`
   display: flex;
 
   width: 100%;
@@ -161,7 +135,7 @@ export const Select = styled.div`
 
     cursor: pointer;
 
-    transition: 0.1s background-color;
+    transition: 0.1s border, 0.1s background-color;
 
     svg {
       margin-right: 0.75rem;
@@ -173,6 +147,12 @@ export const Select = styled.div`
     &:hover {
       background: ${(props) => props.theme['base-hover']};
     }
+
+    ${(props) =>
+      props.$invalid &&
+      css`
+        border: 1px solid ${(props) => props.theme.red};
+      `}
   }
 `
 
