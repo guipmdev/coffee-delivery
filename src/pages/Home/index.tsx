@@ -14,45 +14,6 @@ import CoffeeBanner from '../../assets/coffee-banner.png'
 import { useContext } from 'react'
 import { CoffeeContext } from '../../contexts/CoffeeContext'
 
-interface Address {
-  cep: string
-  street: string
-  number: string
-  complement: string
-  neighborhood: string
-  city: string
-  state: string
-}
-
-export interface Order {
-  coffees: { id: string; quantity: number }[]
-  totalQuantity: number
-  totalPrice: number
-  address: Address | null
-  paymentMethod: null | ('credit-card' | 'debit-card' | 'money')
-}
-
-export const order: Order = {
-  coffees: [
-    {
-      id: '1',
-      quantity: 1,
-    },
-    {
-      id: '2',
-      quantity: 2,
-    },
-    {
-      id: '3',
-      quantity: 3,
-    },
-  ],
-  totalQuantity: 8,
-  totalPrice: 79.2,
-  address: null,
-  paymentMethod: null,
-}
-
 export function Home() {
   const { coffeeList } = useContext(CoffeeContext)
 

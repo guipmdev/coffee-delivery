@@ -24,8 +24,8 @@ import { formatToCurrencyWithoutSymbol } from '../../utils/formatters'
 
 import { CoffeeCard } from './components/CoffeeCard'
 import { Input } from './components/Input'
-import { order } from '../Home'
 import { CoffeeContext } from '../../contexts/CoffeeContext'
+import { OrderContext } from '../../contexts/OrderContext'
 
 const newOrderFormValidationSchema = zod.object({
   address: zod.object({
@@ -54,22 +54,19 @@ type NewOrderFormData = zod.infer<typeof newOrderFormValidationSchema>
 
 export function Checkout() {
   const { coffeeList } = useContext(CoffeeContext)
+  const { order } = useContext(OrderContext)
 
-  const foundCoffees = order.coffees.map((coffee) => ({
+  const selectedCoffees = order.coffees.map((coffee) => ({
     ...coffeeList.find((coffeeItem) => coffeeItem.id === coffee.id)!,
     quantity: coffee.quantity,
   }))
 
-  let totalPrice = 0
+  const totalPrice = selectedCoffees.reduce(
+    (total, coffee) => total + coffee.price,
+    0,
+  )
   const deliveryCost = 3.5
-  let totalPriceWithDelivery = 0
-
-  if (foundCoffees.length) {
-    totalPrice = foundCoffees.reduce((acc, current) => {
-      return acc + current.price * current.quantity
-    }, 0)
-    totalPriceWithDelivery = totalPrice + deliveryCost
-  }
+  const totalPriceWithDelivery = totalPrice + deliveryCost
 
   const newOrderForm = useForm<NewOrderFormData>({
     resolver: zodResolver(newOrderFormValidationSchema),
@@ -219,12 +216,12 @@ export function Checkout() {
 
           <Summary>
             <ul>
-              {foundCoffees.map(
+              {selectedCoffees.map(
                 (coffee, index) =>
                   coffee && (
                     <React.Fragment key={coffee.id}>
                       <CoffeeCard coffee={coffee} />
-                      {foundCoffees.length !== index + 1 && <hr />}
+                      {selectedCoffees.length !== index + 1 && <hr />}
                     </React.Fragment>
                   ),
               )}

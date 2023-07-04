@@ -1,24 +1,53 @@
-import { useState } from 'react'
 import { QuantitySelectorContainer } from './styles'
 
 import { Plus, Minus } from '@phosphor-icons/react'
 
+import { useFormContext } from 'react-hook-form'
+
 interface QuantitySelectorProps {
-  currentQuantity?: number
+  name: string
 }
 
-export function QuantitySelector({ currentQuantity }: QuantitySelectorProps) {
-  const [quantity, setQuantity] = useState(currentQuantity || 1)
+export function QuantitySelector({ name }: QuantitySelectorProps) {
+  const { register, setValue, getValues } = useFormContext()
+
+  function handleQuantityChange(action: string) {
+    switch (action) {
+      case 'increase':
+        setValue(name, getValues(name) + 1)
+        break
+      case 'decrease':
+        if (getValues(name) > 1) {
+          setValue(name, getValues(name) - 1)
+        }
+        break
+    }
+  }
 
   return (
     <QuantitySelectorContainer>
-      <button title="Aumentar quantidade desejada">
+      <button
+        type="button"
+        title="Aumentar quantidade desejada"
+        onClick={() => handleQuantityChange('decrease')}
+      >
         <Minus size={14} weight="bold" />
       </button>
 
-      <span>{quantity}</span>
+      <input
+        type="number"
+        defaultValue={1}
+        readOnly
+        {...register(name, {
+          valueAsNumber: true,
+        })}
+      />
 
-      <button title="Diminuir quantidade desejada">
+      <button
+        type="button"
+        title="Diminuir quantidade desejada"
+        onClick={() => handleQuantityChange('increase')}
+      >
         <Plus size={14} weight="bold" />
       </button>
     </QuantitySelectorContainer>

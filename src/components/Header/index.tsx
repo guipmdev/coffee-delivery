@@ -4,10 +4,12 @@ import { NavLink } from 'react-router-dom'
 import { MapPin, ShoppingCart } from '@phosphor-icons/react'
 
 import CoffeeDeliveryLogo from '../../assets/coffee-delivery-logo.svg'
-
-import { order } from '../../pages/Home'
+import { OrderContext } from '../../contexts/OrderContext'
+import { useContext } from 'react'
 
 export function Header() {
+  const { order } = useContext(OrderContext)
+
   return (
     <HeaderContainer>
       <NavLink to="/">
