@@ -31,7 +31,11 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
         <span>{coffee.name}</span>
 
         <div>
-          {/* <QuantitySelector currentQuantity={coffee.quantity} /> */}
+          <QuantitySelector
+            name={`quantitySelectorForCoffee${coffee.id}`}
+            coffeeId={coffee.id}
+            quantity={coffee.quantity}
+          />
 
           <button onClick={handleRemoveCoffeeFromOrder}>
             <Trash size={16} />

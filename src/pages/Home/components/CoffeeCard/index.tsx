@@ -39,7 +39,6 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
   function handleAddCoffeeToOrder(data: AddCoffeeFormData) {
     addCoffeeToOrder(coffee.id, data.quantity)
     reset()
-    console.log({ data })
   }
 
   return (

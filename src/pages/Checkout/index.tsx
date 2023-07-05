@@ -61,10 +61,14 @@ export function Checkout() {
     quantity: coffee.quantity,
   }))
 
-  const totalPrice = selectedCoffees.reduce(
-    (total, coffee) => total + coffee.price,
-    0,
-  )
+  const totalPrice =
+    Math.round(
+      selectedCoffees.reduce(
+        (total, coffee) => total + coffee.price * coffee.quantity,
+        0,
+      ) * 100,
+    ) / 100
+
   const deliveryCost = 3.5
   const totalPriceWithDelivery = totalPrice + deliveryCost
 
@@ -80,27 +84,36 @@ export function Checkout() {
   } = newOrderForm
 
   function handleCreateNewOrder(data: NewOrderFormData) {
-    console.log(data)
+    const orderPayload = {
+      ...data,
+      ...order,
+      totalPrice,
+      deliveryCost,
+      totalPriceWithDelivery,
+    }
+
+    console.log({ orderPayload })
+
     reset()
   }
 
   return (
     <CheckoutContainer>
       <form onSubmit={handleSubmit(handleCreateNewOrder)}>
-        <section>
-          <h2>Complete seu pedido</h2>
+        <FormProvider {...newOrderForm}>
+          <section>
+            <h2>Complete seu pedido</h2>
 
-          <Address>
-            <FormInfo $iconColor="yellow-dark">
-              <MapPinLine size={22} />
-              <div>
-                <h3>Endereço de Entrega</h3>
-                <p>Informe o endereço onde deseja receber seu pedido</p>
-              </div>
-            </FormInfo>
+            <Address>
+              <FormInfo $iconColor="yellow-dark">
+                <MapPinLine size={22} />
+                <div>
+                  <h3>Endereço de Entrega</h3>
+                  <p>Informe o endereço onde deseja receber seu pedido</p>
+                </div>
+              </FormInfo>
 
-            <div className="address-forms">
-              <FormProvider {...newOrderForm}>
+              <div className="address-forms">
                 <Input
                   type="text"
                   placeholder="CEP"
@@ -155,100 +168,100 @@ export function Checkout() {
                     name="address.state"
                   />
                 </div>
-              </FormProvider>
-            </div>
-          </Address>
-
-          <Payment>
-            <FormInfo $iconColor="purple">
-              <CurrencyDollar size={22} />
-              <div>
-                <h3>Pagamento</h3>
-                <p>
-                  O pagamento é feito na entrega. Escolha a forma que deseja
-                  pagar
-                </p>
               </div>
-            </FormInfo>
+            </Address>
 
-            <div className="payment-options">
-              <Select $invalid={!!errors.paymentMethod}>
-                <input
-                  type="radio"
-                  id="credit-card"
-                  value="credit-card"
-                  {...register('paymentMethod')}
-                />
-                <label htmlFor="credit-card">
-                  <CreditCard size={16} /> CARTÃO DE CRÉDITO
-                </label>
-              </Select>
+            <Payment>
+              <FormInfo $iconColor="purple">
+                <CurrencyDollar size={22} />
+                <div>
+                  <h3>Pagamento</h3>
+                  <p>
+                    O pagamento é feito na entrega. Escolha a forma que deseja
+                    pagar
+                  </p>
+                </div>
+              </FormInfo>
 
-              <Select $invalid={!!errors.paymentMethod}>
-                <input
-                  type="radio"
-                  id="debit-card"
-                  value="debit-card"
-                  {...register('paymentMethod')}
-                />
-                <label htmlFor="debit-card">
-                  <Bank size={16} /> CARTÃO DE DÉBITO
-                </label>
-              </Select>
+              <div className="payment-options">
+                <Select $invalid={!!errors.paymentMethod}>
+                  <input
+                    type="radio"
+                    id="credit-card"
+                    value="credit-card"
+                    {...register('paymentMethod')}
+                  />
+                  <label htmlFor="credit-card">
+                    <CreditCard size={16} /> CARTÃO DE CRÉDITO
+                  </label>
+                </Select>
 
-              <Select $invalid={!!errors.paymentMethod}>
-                <input
-                  type="radio"
-                  id="money"
-                  value="money"
-                  {...register('paymentMethod')}
-                />
-                <label htmlFor="money">
-                  <Money size={16} /> DINHEIRO
-                </label>
-              </Select>
-            </div>
-          </Payment>
-        </section>
+                <Select $invalid={!!errors.paymentMethod}>
+                  <input
+                    type="radio"
+                    id="debit-card"
+                    value="debit-card"
+                    {...register('paymentMethod')}
+                  />
+                  <label htmlFor="debit-card">
+                    <Bank size={16} /> CARTÃO DE DÉBITO
+                  </label>
+                </Select>
 
-        <section>
-          <h2>Cafés selecionados</h2>
+                <Select $invalid={!!errors.paymentMethod}>
+                  <input
+                    type="radio"
+                    id="money"
+                    value="money"
+                    {...register('paymentMethod')}
+                  />
+                  <label htmlFor="money">
+                    <Money size={16} /> DINHEIRO
+                  </label>
+                </Select>
+              </div>
+            </Payment>
+          </section>
 
-          <Summary>
-            <ul>
-              {selectedCoffees.map(
-                (coffee, index) =>
-                  coffee && (
-                    <React.Fragment key={coffee.id}>
-                      <CoffeeCard coffee={coffee} />
-                      {selectedCoffees.length !== index + 1 && <hr />}
-                    </React.Fragment>
-                  ),
-              )}
-            </ul>
+          <section>
+            <h2>Cafés selecionados</h2>
 
-            <hr />
+            <Summary>
+              <ul>
+                {selectedCoffees.map(
+                  (coffee, index) =>
+                    coffee && (
+                      <React.Fragment key={coffee.id}>
+                        <CoffeeCard coffee={coffee} />
+                        {selectedCoffees.length !== index + 1 && <hr />}
+                      </React.Fragment>
+                    ),
+                )}
+              </ul>
 
-            <div>
-              <p>
-                Total de itens{' '}
-                <span>R$ {formatToCurrencyWithoutSymbol(totalPrice)}</span>
-              </p>
-              <p>
-                Entrega{' '}
-                <span>R$ {formatToCurrencyWithoutSymbol(deliveryCost)}</span>
-              </p>
-              <strong>
-                Total{' '}
-                <span>
-                  R$ {formatToCurrencyWithoutSymbol(totalPriceWithDelivery)}
-                </span>
-              </strong>
-            </div>
+              <hr />
 
-            <button type="submit">CONFIRMAR PEDIDO</button>
-          </Summary>
-        </section>
+              <div>
+                <p>
+                  Total de itens{' '}
+                  <span>R$ {formatToCurrencyWithoutSymbol(totalPrice)}</span>
+                </p>
+                <p>
+                  Entrega{' '}
+                  <span>R$ {formatToCurrencyWithoutSymbol(deliveryCost)}</span>
+                </p>
+                <strong>
+                  Total{' '}
+                  <span>
+                    R$ {formatToCurrencyWithoutSymbol(totalPriceWithDelivery)}
+                  </span>
+                </strong>
+              </div>
+
+              <button type="submit">CONFIRMAR PEDIDO</button>
+            </Summary>
+          </section>
+        </FormProvider>
       </form>
     </CheckoutContainer>
   )

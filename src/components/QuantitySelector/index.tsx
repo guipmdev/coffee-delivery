@@ -3,23 +3,44 @@ import { QuantitySelectorContainer } from './styles'
 import { Plus, Minus } from '@phosphor-icons/react'
 
 import { useFormContext } from 'react-hook-form'
+import { OrderContext } from '../../contexts/OrderContext'
+import { useContext } from 'react'
 
 interface QuantitySelectorProps {
   name: string
+  coffeeId?: string
+  quantity?: number
 }
 
-export function QuantitySelector({ name }: QuantitySelectorProps) {
+export function QuantitySelector({
+  name,
+  coffeeId,
+  quantity,
+}: QuantitySelectorProps) {
   const { register, setValue, getValues } = useFormContext()
 
-  function handleQuantityChange(action: string) {
+  const { modifyCoffeeQuantityInOrder } = useContext(OrderContext)
+
+  const defaultValue = quantity || 1
+
+  function handleQuantityChange(action: 'increase' | 'decrease') {
     switch (action) {
       case 'increase':
         setValue(name, getValues(name) + 1)
+
+        if (coffeeId) {
+          modifyCoffeeQuantityInOrder(coffeeId, 'increase')
+        }
         break
       case 'decrease':
         if (getValues(name) > 1) {
           setValue(name, getValues(name) - 1)
+
+          if (coffeeId) {
+            modifyCoffeeQuantityInOrder(coffeeId, 'decrease')
+          }
         }
+
         break
     }
   }
@@ -36,7 +57,7 @@ export function QuantitySelector({ name }: QuantitySelectorProps) {
 
       <input
         type="number"
-        defaultValue={1}
+        defaultValue={defaultValue}
         readOnly
         {...register(name, {
           valueAsNumber: true,
