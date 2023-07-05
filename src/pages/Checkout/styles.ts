@@ -215,7 +215,13 @@ export const Summary = styled(BaseDiv)`
 
     transition: 0.1s background-color;
 
-    &:hover {
+    &:disabled {
+      opacity: 0.7;
+
+      cursor: not-allowed;
+    }
+
+    &:not(:disabled):hover {
       background: ${(props) => props.theme['yellow-dark']};
     }
   }

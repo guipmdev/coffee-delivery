@@ -4,7 +4,7 @@ import { MapPin, Timer, CurrencyDollar } from '@phosphor-icons/react'
 
 import { Differential } from '../../../../components/Differential'
 
-import MotoboyDelivery from '../../assets/motoboy-delivery.svg'
+import MotoboyDelivery from '../../../../assets/motoboy-delivery.svg'
 
 export function Success() {
   return (

@@ -88,17 +88,19 @@ export function Checkout() {
   } = newOrderForm
 
   function handleCreateNewOrder(data: NewOrderFormData) {
-    const orderPayload: OrderPayload = {
-      ...data,
-      ...order,
-      totalPrice,
-      deliveryCost,
-      totalPriceWithDelivery,
-    }
-    reset()
+    if (selectedCoffees.length > 0) {
+      const orderPayload: OrderPayload = {
+        ...data,
+        ...order,
+        totalPrice,
+        deliveryCost,
+        totalPriceWithDelivery,
+      }
+      reset()
 
-    finishOrder(orderPayload)
-    setSuccess(true)
+      finishOrder(orderPayload)
+      setSuccess(true)
+    }
   }
 
   return success ? (
@@ -264,7 +266,9 @@ export function Checkout() {
                 </strong>
               </div>
 
-              <button type="submit">CONFIRMAR PEDIDO</button>
+              <button type="submit" disabled={!(selectedCoffees.length > 0)}>
+                CONFIRMAR PEDIDO
+              </button>
             </Summary>
           </section>
         </FormProvider>
