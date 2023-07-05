@@ -41,9 +41,14 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
     reset()
   }
 
+  const imgUrl = new URL(
+    `../../../../assets/coffees/${coffee.imageURL}`,
+    import.meta.url,
+  ).href
+
   return (
     <CoffeeCardContainer>
-      <img src={coffee.imageURL} alt="" />
+      <img src={imgUrl} alt="" />
 
       <div className="tags">
         {foundCoffeeTags.map(

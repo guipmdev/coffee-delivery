@@ -23,9 +23,14 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
     removeCoffeeFromOrder(coffee.id)
   }
 
+  const imgUrl = new URL(
+    `../../../../assets/coffees/${coffee.imageURL}`,
+    import.meta.url,
+  ).href
+
   return (
     <CoffeeCardContainer>
-      <img src={coffee.imageURL} alt="" />
+      <img src={imgUrl} alt="" />
 
       <div className="info">
         <span>{coffee.name}</span>
