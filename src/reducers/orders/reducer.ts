@@ -11,6 +11,22 @@ export interface Order {
   totalQuantity: number
 }
 
+export interface OrderPayload extends Order {
+  totalPrice: number
+  deliveryCost: number
+  totalPriceWithDelivery: number
+  address: {
+    cep: string
+    street: string
+    number: string
+    complement: undefined | string
+    neighborhood: string
+    city: string
+    state: string
+  }
+  paymentMethod: string
+}
+
 type OrderState = Order
 
 export function orderReducer(state: OrderState, action: any) {
@@ -69,6 +85,18 @@ export function orderReducer(state: OrderState, action: any) {
         draft.totalQuantity -= quantity
 
         draft.coffees.splice(foundCoffeeIndex, 1)
+      })
+    }
+
+    case ActionTypes.FINISH_ORDER: {
+      const { orderPayload } = action.payload
+
+      console.log(orderPayload)
+
+      return produce(state, (draft) => {
+        draft.totalQuantity = 0
+
+        draft.coffees = []
       })
     }
 

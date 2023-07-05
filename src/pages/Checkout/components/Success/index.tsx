@@ -2,7 +2,7 @@ import { SuccessContainer } from './styles'
 
 import { MapPin, Timer, CurrencyDollar } from '@phosphor-icons/react'
 
-import { Differential } from '../../components/Differential'
+import { Differential } from '../../../../components/Differential'
 
 import MotoboyDelivery from '../../assets/motoboy-delivery.svg'
 

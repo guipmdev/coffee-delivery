@@ -15,7 +15,7 @@ import {
   Money,
 } from '@phosphor-icons/react'
 
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import * as zod from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -26,6 +26,8 @@ import { CoffeeCard } from './components/CoffeeCard'
 import { Input } from './components/Input'
 import { CoffeeContext } from '../../contexts/CoffeeContext'
 import { OrderContext } from '../../contexts/OrderContext'
+import { OrderPayload } from '../../reducers/orders/reducer'
+import { Success } from './components/Success'
 
 const newOrderFormValidationSchema = zod.object({
   address: zod.object({
@@ -54,7 +56,9 @@ type NewOrderFormData = zod.infer<typeof newOrderFormValidationSchema>
 
 export function Checkout() {
   const { coffeeList } = useContext(CoffeeContext)
-  const { order } = useContext(OrderContext)
+  const { order, finishOrder } = useContext(OrderContext)
+
+  const [success, setSuccess] = useState(false)
 
   const selectedCoffees = order.coffees.map((coffee) => ({
     ...coffeeList.find((coffeeItem) => coffeeItem.id === coffee.id)!,
@@ -84,20 +88,22 @@ export function Checkout() {
   } = newOrderForm
 
   function handleCreateNewOrder(data: NewOrderFormData) {
-    const orderPayload = {
+    const orderPayload: OrderPayload = {
       ...data,
       ...order,
       totalPrice,
       deliveryCost,
       totalPriceWithDelivery,
     }
-
-    console.log({ orderPayload })
-
     reset()
+
+    finishOrder(orderPayload)
+    setSuccess(true)
   }
 
-  return (
+  return success ? (
+    <Success />
+  ) : (
     <CheckoutContainer>
       <form onSubmit={handleSubmit(handleCreateNewOrder)}>
         <FormProvider {...newOrderForm}>

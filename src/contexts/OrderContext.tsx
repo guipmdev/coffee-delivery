@@ -1,7 +1,8 @@
 import { ReactNode, createContext, useEffect, useReducer } from 'react'
-import { Order, orderReducer } from '../reducers/orders/reducer'
+import { Order, OrderPayload, orderReducer } from '../reducers/orders/reducer'
 import {
   addNewCoffeeAction,
+  finishOrderAction,
   modifyCoffeeQuantityAction,
   removeCoffeeAction,
 } from '../reducers/orders/actions'
@@ -14,6 +15,7 @@ interface OrderContextType {
     coffeeId: string,
     modifyAction: 'increase' | 'decrease',
   ) => void
+  finishOrder: (orderPayload: OrderPayload) => void
 }
 
 export const OrderContext = createContext({} as OrderContextType)
@@ -63,6 +65,10 @@ export function OrderContextProvider({ children }: OrderContextProps) {
     dispatch(removeCoffeeAction(coffeeId))
   }
 
+  function finishOrder(orderPayload: OrderPayload) {
+    dispatch(finishOrderAction(orderPayload))
+  }
+
   return (
     <OrderContext.Provider
       value={{
@@ -70,6 +76,7 @@ export function OrderContextProvider({ children }: OrderContextProps) {
         addCoffeeToOrder,
         modifyCoffeeQuantityInOrder,
         removeCoffeeFromOrder,
+        finishOrder,
       }}
     >
       {children}
