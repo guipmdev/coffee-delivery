@@ -29,7 +29,7 @@ export function CoffeeContextProvider({ children }: OrderContextProps) {
   const coffeeList: Coffee[] = [
     {
       id: '1',
-      imageURL: './src/assets/coffees/expresso.png',
+      imageURL: '/src/assets/coffees/expresso.png',
       tags: ['1'],
       name: 'Expresso Tradicional',
       description: 'O tradicional café feito com água quente e grãos moídos',
@@ -37,7 +37,7 @@ export function CoffeeContextProvider({ children }: OrderContextProps) {
     },
     {
       id: '2',
-      imageURL: './src/assets/coffees/americano.png',
+      imageURL: '/src/assets/coffees/americano.png',
       tags: ['1'],
       name: 'Expresso Americano',
       description: 'Expresso diluído, menos intenso que o tradicional',
@@ -45,7 +45,7 @@ export function CoffeeContextProvider({ children }: OrderContextProps) {
     },
     {
       id: '3',
-      imageURL: './src/assets/coffees/expresso_cremoso.png',
+      imageURL: '/src/assets/coffees/expresso_cremoso.png',
       tags: ['1'],
       name: 'Expresso Cremoso',
       description: 'Café expresso tradicional com espuma cremosa',
@@ -53,7 +53,7 @@ export function CoffeeContextProvider({ children }: OrderContextProps) {
     },
     {
       id: '4',
-      imageURL: './src/assets/coffees/café_gelado.png',
+      imageURL: '/src/assets/coffees/café_gelado.png',
       tags: ['1', '4'],
       name: 'Expresso Gelado',
       description: 'Bebida preparada com café expresso e cubos de gelo',
@@ -61,7 +61,7 @@ export function CoffeeContextProvider({ children }: OrderContextProps) {
     },
     {
       id: '5',
-      imageURL: './src/assets/coffees/café_com_leite.png',
+      imageURL: '/src/assets/coffees/café_com_leite.png',
       tags: ['1', '3'],
       name: 'Expresso com leite',
       description: 'Meio a meio de expresso tradicional com leite vaporizado',
@@ -69,7 +69,7 @@ export function CoffeeContextProvider({ children }: OrderContextProps) {
     },
     {
       id: '6',
-      imageURL: './src/assets/coffees/latte.png',
+      imageURL: '/src/assets/coffees/latte.png',
       tags: ['1', '3'],
       name: 'Latte',
       description:
@@ -78,7 +78,7 @@ export function CoffeeContextProvider({ children }: OrderContextProps) {
     },
     {
       id: '7',
-      imageURL: './src/assets/coffees/capuccino.png',
+      imageURL: '/src/assets/coffees/capuccino.png',
       tags: ['1', '3'],
       name: 'Capuccino',
       description:
@@ -87,7 +87,7 @@ export function CoffeeContextProvider({ children }: OrderContextProps) {
     },
     {
       id: '8',
-      imageURL: './src/assets/coffees/macchiato.png',
+      imageURL: '/src/assets/coffees/macchiato.png',
       tags: ['1', '3'],
       name: 'Macchiato',
       description:
@@ -96,7 +96,7 @@ export function CoffeeContextProvider({ children }: OrderContextProps) {
     },
     {
       id: '9',
-      imageURL: './src/assets/coffees/mochaccino.png',
+      imageURL: '/src/assets/coffees/mochaccino.png',
       tags: ['1', '3'],
       name: 'Mocaccino',
       description: 'Café expresso com calda de chocolate, pouco leite e espuma',
@@ -104,7 +104,7 @@ export function CoffeeContextProvider({ children }: OrderContextProps) {
     },
     {
       id: '10',
-      imageURL: './src/assets/coffees/chocolate_quente.png',
+      imageURL: '/src/assets/coffees/chocolate_quente.png',
       tags: ['2', '3'],
       name: 'Chocolate Quente',
       description:
@@ -113,7 +113,7 @@ export function CoffeeContextProvider({ children }: OrderContextProps) {
     },
     {
       id: '11',
-      imageURL: './src/assets/coffees/cubano.png',
+      imageURL: '/src/assets/coffees/cubano.png',
       tags: ['2', '5', '4'],
       name: 'Cubano',
       description:
@@ -122,7 +122,7 @@ export function CoffeeContextProvider({ children }: OrderContextProps) {
     },
     {
       id: '12',
-      imageURL: './src/assets/coffees/havaiano.png',
+      imageURL: '/src/assets/coffees/havaiano.png',
       tags: ['2'],
       name: 'Havaiano',
       description: 'Bebida adocicada preparada com café e leite de coco',
@@ -130,7 +130,7 @@ export function CoffeeContextProvider({ children }: OrderContextProps) {
     },
     {
       id: '13',
-      imageURL: './src/assets/coffees/árabe.png',
+      imageURL: '/src/assets/coffees/árabe.png',
       tags: ['2'],
       name: 'Árabe',
       description: 'Bebida preparada com grãos de café árabe e especiarias',
@@ -138,7 +138,7 @@ export function CoffeeContextProvider({ children }: OrderContextProps) {
     },
     {
       id: '14',
-      imageURL: './src/assets/coffees/irlandês.png',
+      imageURL: '/src/assets/coffees/irlandês.png',
       tags: ['2', '5'],
       name: 'Irlandês',
       description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
