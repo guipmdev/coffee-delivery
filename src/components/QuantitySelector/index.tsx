@@ -27,7 +27,7 @@ export function QuantitySelector({
   function handleQuantityChange(modifyAction: ModifyAction) {
     const currentCounterValue = getValues(name)
 
-    if (currentCounterValue === 1) return
+    if (currentCounterValue === 1 && modifyAction === 'decrease') return
 
     const counterModifier = modifyAction === 'increase' ? 1 : -1
 
