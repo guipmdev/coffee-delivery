@@ -1,34 +1,33 @@
 import { InputContainer } from './styles'
 
 import { InputHTMLAttributes } from 'react'
-import { useFormContext, FieldError } from 'react-hook-form'
+import { useFormContext } from 'react-hook-form'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   $width?: number
-  errors?: FieldError
   name: string
   optional?: boolean
 }
 
-export function Input({
-  $width,
-  errors,
-  name,
-  optional,
-  ...props
-}: InputProps) {
-  const { register } = useFormContext()
+export function Input({ $width, name, optional, ...rest }: InputProps) {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext()
+
+  const fieldErrors = errors[name]
+  const isErrored = !!fieldErrors
 
   return (
-    <InputContainer $width={$width} $invalid={!!errors}>
+    <InputContainer $width={$width} $invalid={isErrored}>
       <div>
-        <input {...register(name)} {...props} />
+        <input {...register(name)} {...rest} />
         {optional && <span className="optional-label">Opcional</span>}
       </div>
 
-      {!!errors && (
-        <span className="error-message" title={errors.message}>
-          {errors.message}
+      {isErrored && (
+        <span className="error-message" title={String(fieldErrors.message)}>
+          {String(fieldErrors.message)}
         </span>
       )}
     </InputContainer>

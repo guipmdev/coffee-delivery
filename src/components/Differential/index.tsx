@@ -2,25 +2,26 @@ import { DifferentialContainer } from './styles'
 
 import { ReactNode } from 'react'
 
-import { Icon, IconProps } from '@phosphor-icons/react'
+import { IconProps, Icon } from '@phosphor-icons/react'
 
 interface DifferentialProps extends IconProps {
   icon: Icon
-  backgroundColor: string
+  $circleColor: string
   children: ReactNode
 }
 
 export function Differential({
   icon: CustomIcon,
-  backgroundColor,
+  $circleColor,
   children,
-  ...props
+  ...rest
 }: DifferentialProps) {
   return (
-    <DifferentialContainer $backgroundColor={backgroundColor}>
+    <DifferentialContainer $circleColor={$circleColor}>
       <span>
-        <CustomIcon size={16} weight="fill" {...props} />
+        <CustomIcon size={16} weight="fill" {...rest} />
       </span>
+
       <div>{children}</div>
     </DifferentialContainer>
   )

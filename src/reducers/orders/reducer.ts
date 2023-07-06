@@ -1,4 +1,5 @@
 import { produce } from 'immer'
+
 import { ActionTypes } from './actions'
 
 interface Coffee {
@@ -10,6 +11,8 @@ export interface Order {
   coffees: Coffee[]
   totalQuantity: number
 }
+
+export type PaymentMethod = 'credit-card' | 'debit-card' | 'money'
 
 export interface OrderPayload extends Order {
   totalPrice: number
@@ -24,7 +27,7 @@ export interface OrderPayload extends Order {
     city: string
     state: string
   }
-  paymentMethod: string
+  paymentMethod: PaymentMethod
 }
 
 type OrderState = Order
@@ -61,14 +64,13 @@ export function orderReducer(state: OrderState, action: any) {
         (coffee) => coffee.id === coffeeId,
       )
 
+      if (foundCoffeeIndex < 0) return state
+
+      const quantityModifier = modifyAction === 'increase' ? 1 : -1
+
       return produce(state, (draft) => {
-        if (modifyAction === 'increase') {
-          draft.coffees[foundCoffeeIndex].quantity += 1
-          draft.totalQuantity += 1
-        } else {
-          draft.coffees[foundCoffeeIndex].quantity -= 1
-          draft.totalQuantity -= 1
-        }
+        draft.coffees[foundCoffeeIndex].quantity += quantityModifier
+        draft.totalQuantity += quantityModifier
       })
     }
 
@@ -79,11 +81,12 @@ export function orderReducer(state: OrderState, action: any) {
         (coffee) => coffee.id === coffeeId,
       )
 
+      if (foundCoffeeIndex < 0) return state
+
       const { quantity } = state.coffees[foundCoffeeIndex]
 
       return produce(state, (draft) => {
         draft.totalQuantity -= quantity
-
         draft.coffees.splice(foundCoffeeIndex, 1)
       })
     }
@@ -91,11 +94,10 @@ export function orderReducer(state: OrderState, action: any) {
     case ActionTypes.FINISH_ORDER: {
       const { orderPayload } = action.payload
 
-      console.log(orderPayload)
+      console.log(orderPayload) // Just for representation purposes
 
       return produce(state, (draft) => {
         draft.totalQuantity = 0
-
         draft.coffees = []
       })
     }

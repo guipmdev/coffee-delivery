@@ -1,7 +1,7 @@
 import { styled } from 'styled-components'
 
 interface DifferentialProps {
-  $backgroundColor: string
+  $circleColor: string
 }
 
 export const DifferentialContainer = styled.li<DifferentialProps>`
@@ -9,7 +9,7 @@ export const DifferentialContainer = styled.li<DifferentialProps>`
   align-items: center;
 
   span {
-    background: ${(props) => props.theme[props.$backgroundColor]};
+    background: ${(props) => props.theme[props.$circleColor]};
 
     padding: 0.5rem;
     border-radius: 50%;
@@ -19,7 +19,7 @@ export const DifferentialContainer = styled.li<DifferentialProps>`
     line-height: 0;
   }
 
-  div p {
+  div {
     font: ${(props) => props.theme['text-m']};
   }
 `

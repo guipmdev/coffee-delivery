@@ -1,16 +1,19 @@
-import { CoffeeCardContainer, Buy } from './styles'
+import { CoffeeCardContainer, BuyInformation } from './styles'
 
-import { ShoppingCart } from '@phosphor-icons/react'
-
-import { QuantitySelector } from '../../../../components/QuantitySelector'
-import { formatToCurrencyWithoutSymbol } from '../../../../utils/formatters'
-import { Coffee, CoffeeContext } from '../../../../contexts/CoffeeContext'
 import { useContext } from 'react'
-import { OrderContext } from '../../../../contexts/OrderContext'
-import { FormProvider, useForm } from 'react-hook-form'
+import { useForm, FormProvider } from 'react-hook-form'
 
 import * as zod from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+
+import { ShoppingCart } from '@phosphor-icons/react'
+
+import { Coffee, CoffeeContext } from '../../../../contexts/CoffeeContext'
+import { OrderContext } from '../../../../contexts/OrderContext'
+
+import { formatToCurrencyWithoutSymbol } from '../../../../utils/formatters'
+
+import { QuantitySelector } from '../../../../components/QuantitySelector'
 
 interface CoffeeCardProps {
   coffee: Coffee
@@ -20,7 +23,7 @@ const addCoffeeFormValidationSchema = zod.object({
   quantity: zod.number().min(1),
 })
 
-export type AddCoffeeFormData = zod.infer<typeof addCoffeeFormValidationSchema>
+type AddCoffeeFormData = zod.infer<typeof addCoffeeFormValidationSchema>
 
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
   const { coffeeTags } = useContext(CoffeeContext)
@@ -46,9 +49,11 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
     import.meta.url,
   ).href
 
+  const formattedPrice = formatToCurrencyWithoutSymbol(coffee.price)
+
   return (
     <CoffeeCardContainer>
-      <img src={imgUrl} alt="" />
+      <img src={imgUrl} alt={coffee.name} />
 
       <div className="tags">
         {foundCoffeeTags.map(
@@ -61,24 +66,21 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
         <p>{coffee.description}</p>
       </div>
 
-      <Buy>
+      <BuyInformation>
         <span>
-          R$ <strong>{formatToCurrencyWithoutSymbol(coffee.price)}</strong>
+          R$ <strong>{formattedPrice}</strong>
         </span>
 
-        <form
-          className="buy-actions"
-          onSubmit={handleSubmit(handleAddCoffeeToOrder)}
-        >
+        <form onSubmit={handleSubmit(handleAddCoffeeToOrder)}>
           <FormProvider {...addCoffeeForm}>
             <QuantitySelector name="quantity" />
-          </FormProvider>
 
-          <button type="submit" title="Adicionar ao carrinho">
-            <ShoppingCart size={22} weight="fill" />
-          </button>
+            <button type="submit" title="Adicionar ao carrinho">
+              <ShoppingCart size={22} weight="fill" />
+            </button>
+          </FormProvider>
         </form>
-      </Buy>
+      </BuyInformation>
     </CoffeeCardContainer>
   )
 }

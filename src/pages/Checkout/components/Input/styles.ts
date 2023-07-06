@@ -17,11 +17,11 @@ export const InputContainer = styled.div<InputProps>`
     `};
 
   & > div {
+    position: relative;
+
     display: flex;
     justify-content: center;
     align-items: center;
-
-    position: relative;
   }
 
   input {

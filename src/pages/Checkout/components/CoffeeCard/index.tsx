@@ -1,12 +1,15 @@
-import { CoffeeCardContainer } from './styles'
+import { CoffeeCardContainer, Info } from './styles'
+
+import { useContext } from 'react'
 
 import { Trash } from '@phosphor-icons/react'
 
-import { QuantitySelector } from '../../../../components/QuantitySelector'
-import { formatToCurrencyWithoutSymbol } from '../../../../utils/formatters'
-import { useContext } from 'react'
-import { OrderContext } from '../../../../contexts/OrderContext'
 import { Coffee } from '../../../../contexts/CoffeeContext'
+import { OrderContext } from '../../../../contexts/OrderContext'
+
+import { formatToCurrencyWithoutSymbol } from '../../../../utils/formatters'
+
+import { QuantitySelector } from '../../../../components/QuantitySelector'
 
 interface CoffeeInfo extends Coffee {
   quantity: number
@@ -32,7 +35,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
     <CoffeeCardContainer>
       <img src={imgUrl} alt="" />
 
-      <div className="info">
+      <Info>
         <span>{coffee.name}</span>
 
         <div>
@@ -47,7 +50,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
             REMOVER
           </button>
         </div>
-      </div>
+      </Info>
 
       <strong>R$ {formatToCurrencyWithoutSymbol(coffee.price)}</strong>
     </CoffeeCardContainer>

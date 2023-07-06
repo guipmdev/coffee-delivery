@@ -7,54 +7,8 @@ export const CoffeeCardContainer = styled.li`
 
   padding: 0.5rem 0.25rem;
 
-  list-style: none;
-
   img {
-    width: 64px;
-  }
-
-  .info {
-    display: flex;
-    flex-direction: column;
-
-    & > span {
-      margin-bottom: 0.5rem;
-
-      color: ${(props) => props.theme['base-subtitle']};
-    }
-
-    & > div {
-      display: flex;
-      gap: 0.5rem;
-
-      & > button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.25rem;
-
-        padding: 0.5rem;
-        border: none;
-        border-radius: 6px;
-
-        font: ${(props) => props.theme['button-m']};
-        line-height: initial;
-
-        background: ${(props) => props.theme['base-button']};
-
-        cursor: pointer;
-
-        transition: 0.1s background-color;
-
-        svg {
-          color: ${(props) => props.theme.purple};
-        }
-
-        &:hover {
-          background: ${(props) => props.theme['base-hover']};
-        }
-      }
-    }
+    width: 4rem;
   }
 
   strong {
@@ -69,7 +23,47 @@ export const CoffeeCardContainer = styled.li`
     align-items: center;
 
     img {
-      width: 96px;
+      width: 6rem;
+    }
+  }
+`
+
+export const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  span {
+    margin-bottom: 0.5rem;
+
+    color: ${(props) => props.theme['base-subtitle']};
+  }
+
+  & > div {
+    display: flex;
+    gap: 0.5rem;
+
+    & > button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.25rem;
+
+      padding: 0.5rem;
+      border-radius: 6px;
+
+      font: ${(props) => props.theme['button-m']};
+
+      background: ${(props) => props.theme['base-button']};
+
+      transition: 0.1s background-color;
+
+      svg {
+        color: ${(props) => props.theme.purple};
+      }
+
+      &:hover {
+        background: ${(props) => props.theme['base-hover']};
+      }
     }
   }
 `

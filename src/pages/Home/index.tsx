@@ -1,5 +1,7 @@
 import { HomeContainer, Intro, CoffeeList } from './styles'
 
+import { useContext } from 'react'
+
 import {
   ShoppingCart,
   Package,
@@ -7,12 +9,12 @@ import {
   Coffee as CoffeeIcon,
 } from '@phosphor-icons/react'
 
-import { CoffeeCard } from './components/CoffeeCard'
+import { CoffeeContext } from '../../contexts/CoffeeContext'
+
 import { Differential } from '../../components/Differential'
+import { CoffeeCard } from './components/CoffeeCard'
 
 import CoffeeBanner from '../../assets/coffee-banner.png'
-import { useContext } from 'react'
-import { CoffeeContext } from '../../contexts/CoffeeContext'
 
 export function Home() {
   const { coffeeList } = useContext(CoffeeContext)
@@ -29,19 +31,19 @@ export function Home() {
             </p>
 
             <ul>
-              <Differential icon={ShoppingCart} backgroundColor="yellow-dark">
+              <Differential icon={ShoppingCart} $circleColor="yellow-dark">
                 <p>Compra simples e segura</p>
               </Differential>
 
-              <Differential icon={Package} backgroundColor="base-text">
+              <Differential icon={Package} $circleColor="base-text">
                 <p>Embalagem mantém o café intacto</p>
               </Differential>
 
-              <Differential icon={Timer} backgroundColor="yellow">
+              <Differential icon={Timer} $circleColor="yellow">
                 <p>Entrega rápida e rastreada</p>
               </Differential>
 
-              <Differential icon={CoffeeIcon} backgroundColor="purple">
+              <Differential icon={CoffeeIcon} $circleColor="purple">
                 <p>O café chega fresquinho até você</p>
               </Differential>
             </ul>

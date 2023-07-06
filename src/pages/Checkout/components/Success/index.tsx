@@ -14,14 +14,14 @@ export function Success() {
 
       <div>
         <ul>
-          <Differential icon={MapPin} backgroundColor="purple">
+          <Differential icon={MapPin} $circleColor="purple">
             <p>
               Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
             </p>
             <p>Farrapos - Porto Alegre, RS</p>
           </Differential>
 
-          <Differential icon={Timer} backgroundColor="yellow">
+          <Differential icon={Timer} $circleColor="yellow">
             <p>Previsão de entrega</p>
             <p>
               <strong>20 min - 30 min</strong>
@@ -30,7 +30,7 @@ export function Success() {
 
           <Differential
             icon={CurrencyDollar}
-            backgroundColor="yellow-dark"
+            $circleColor="yellow-dark"
             weight="regular"
           >
             <p>Pagamento na entrega</p>

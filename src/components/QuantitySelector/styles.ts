@@ -11,42 +11,33 @@ export const QuantitySelectorContainer = styled.div`
   padding: 0.5rem;
   border-radius: 6px;
 
+  button {
+    color: ${(props) => props.theme.purple};
+    line-height: 0;
+
+    transition: 0.1s color;
+
+    &:hover {
+      color: ${(props) => props.theme['purple-dark']};
+    }
+  }
+
   input {
     text-align: center;
 
-    background: transparent;
     width: 1.25rem;
-
-    border: none;
 
     color: ${(props) => props.theme['base-title']};
     font: ${(props) => props.theme['text-m']};
-    line-height: 0;
 
     appearance: textfield;
     -moz-appearance: textfield;
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
       margin: 0;
-    }
-  }
 
-  button {
-    background: transparent;
-
-    border: none;
-
-    color: ${(props) => props.theme.purple};
-    line-height: 0;
-
-    cursor: pointer;
-
-    transition: 0.1s color;
-
-    &:hover {
-      color: ${(props) => props.theme['purple-dark']};
+      -webkit-appearance: none;
     }
   }
 `

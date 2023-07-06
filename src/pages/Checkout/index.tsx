@@ -1,11 +1,16 @@
 import {
   CheckoutContainer,
+  FormInfo,
   Address,
   Payment,
   Summary,
-  FormInfo,
-  Select,
 } from './styles'
+
+import React, { useContext, useState } from 'react'
+import { useForm, FormProvider } from 'react-hook-form'
+
+import * as zod from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 import {
   MapPinLine,
@@ -15,19 +20,17 @@ import {
   Money,
 } from '@phosphor-icons/react'
 
-import React, { useContext, useState } from 'react'
-import { useForm, FormProvider } from 'react-hook-form'
-import * as zod from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
+import { CoffeeContext } from '../../contexts/CoffeeContext'
+import { OrderContext } from '../../contexts/OrderContext'
+
+import { OrderPayload } from '../../reducers/orders/reducer'
 
 import { formatToCurrencyWithoutSymbol } from '../../utils/formatters'
 
-import { CoffeeCard } from './components/CoffeeCard'
-import { Input } from './components/Input'
-import { CoffeeContext } from '../../contexts/CoffeeContext'
-import { OrderContext } from '../../contexts/OrderContext'
-import { OrderPayload } from '../../reducers/orders/reducer'
 import { Success } from './components/Success'
+import { Input } from './components/Input'
+import { Select } from './components/Select'
+import { CoffeeCard } from './components/CoffeeCard'
 
 const newOrderFormValidationSchema = zod.object({
   address: zod.object({
@@ -47,8 +50,10 @@ const newOrderFormValidationSchema = zod.object({
       .nonempty({ message: 'Este campo é obrigatório' })
       .max(2, { message: 'Apenas a sigla do estado' }),
   }),
-  paymentMethod: zod.string({
-    invalid_type_error: 'Forma de pagamento é obrigatória',
+  paymentMethod: zod.enum(['credit-card', 'debit-card', 'money'], {
+    errorMap: (_issue, _ctx) => ({
+      message: 'Forma de pagamento é obrigatória',
+    }),
   }),
 })
 
@@ -60,35 +65,38 @@ export function Checkout() {
 
   const [success, setSuccess] = useState(false)
 
-  const selectedCoffees = order.coffees.map((coffee) => ({
-    ...coffeeList.find((coffeeItem) => coffeeItem.id === coffee.id)!,
-    quantity: coffee.quantity,
-  }))
-
-  const totalPrice =
-    Math.round(
-      selectedCoffees.reduce(
-        (total, coffee) => total + coffee.price * coffee.quantity,
-        0,
-      ) * 100,
-    ) / 100
-
-  const deliveryCost = 3.5
-  const totalPriceWithDelivery = totalPrice + deliveryCost
-
   const newOrderForm = useForm<NewOrderFormData>({
     resolver: zodResolver(newOrderFormValidationSchema),
   })
 
-  const {
-    handleSubmit,
-    reset,
-    register,
-    formState: { errors },
-  } = newOrderForm
+  const { handleSubmit, reset } = newOrderForm
+
+  const selectedCoffees = order.coffees.map((coffee) => {
+    const foundCoffee = coffeeList.find(
+      (coffeeItem) => coffeeItem.id === coffee.id,
+    )
+
+    if (!foundCoffee) return undefined
+
+    return {
+      ...foundCoffee,
+      quantity: coffee.quantity,
+    }
+  })
+
+  const totalPrice = selectedCoffees.reduce(
+    (total, coffee) =>
+      coffee ? total + coffee.price * coffee.quantity : total,
+    0,
+  )
+  const roundedTotalPrice = Math.round(totalPrice * 100) / 100
+
+  const deliveryCost = 3.5
+
+  const totalPriceWithDelivery = roundedTotalPrice + deliveryCost
 
   function handleCreateNewOrder(data: NewOrderFormData) {
-    if (selectedCoffees.length > 0) {
+    if (selectedCoffees.length) {
       const orderPayload: OrderPayload = {
         ...data,
         ...order,
@@ -121,28 +129,21 @@ export function Checkout() {
                 </div>
               </FormInfo>
 
-              <div className="address-forms">
+              <div className="address-inputs">
                 <Input
                   type="text"
                   placeholder="CEP"
                   maxLength={8}
                   $width={200}
-                  errors={errors.address?.cep}
                   name="address.cep"
                 />
-                <Input
-                  type="text"
-                  placeholder="Rua"
-                  errors={errors.address?.street}
-                  name="address.street"
-                />
+                <Input type="text" placeholder="Rua" name="address.street" />
 
                 <div className="input-group">
                   <Input
                     type="text"
                     placeholder="Número"
                     $width={200}
-                    errors={errors.address?.number}
                     name="address.number"
                   />
                   <Input
@@ -158,21 +159,14 @@ export function Checkout() {
                     type="text"
                     placeholder="Bairro"
                     $width={200}
-                    errors={errors.address?.neighborhood}
                     name="address.neighborhood"
                   />
-                  <Input
-                    type="text"
-                    placeholder="Cidade"
-                    errors={errors.address?.city}
-                    name="address.city"
-                  />
+                  <Input type="text" placeholder="Cidade" name="address.city" />
                   <Input
                     type="text"
                     placeholder="UF"
                     maxLength={2}
                     $width={60}
-                    errors={errors.address?.state}
                     name="address.state"
                   />
                 </div>
@@ -192,41 +186,26 @@ export function Checkout() {
               </FormInfo>
 
               <div className="payment-options">
-                <Select $invalid={!!errors.paymentMethod}>
-                  <input
-                    type="radio"
-                    id="credit-card"
-                    value="credit-card"
-                    {...register('paymentMethod')}
-                  />
-                  <label htmlFor="credit-card">
-                    <CreditCard size={16} /> CARTÃO DE CRÉDITO
-                  </label>
-                </Select>
+                <Select
+                  icon={CreditCard}
+                  name="paymentMethod"
+                  value="credit-card"
+                  selectText="CARTÃO DE CRÉDITO"
+                />
 
-                <Select $invalid={!!errors.paymentMethod}>
-                  <input
-                    type="radio"
-                    id="debit-card"
-                    value="debit-card"
-                    {...register('paymentMethod')}
-                  />
-                  <label htmlFor="debit-card">
-                    <Bank size={16} /> CARTÃO DE DÉBITO
-                  </label>
-                </Select>
+                <Select
+                  icon={Bank}
+                  name="paymentMethod"
+                  value="debit-card"
+                  selectText="CARTÃO DE DÉBITO"
+                />
 
-                <Select $invalid={!!errors.paymentMethod}>
-                  <input
-                    type="radio"
-                    id="money"
-                    value="money"
-                    {...register('paymentMethod')}
-                  />
-                  <label htmlFor="money">
-                    <Money size={16} /> DINHEIRO
-                  </label>
-                </Select>
+                <Select
+                  icon={Money}
+                  name="paymentMethod"
+                  value="money"
+                  selectText="DINHEIRO"
+                />
               </div>
             </Payment>
           </section>

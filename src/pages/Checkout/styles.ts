@@ -1,4 +1,4 @@
-import { css, styled } from 'styled-components'
+import { styled } from 'styled-components'
 
 export const CheckoutContainer = styled.main`
   max-width: ${(props) => props.theme['max-width']};
@@ -10,17 +10,17 @@ export const CheckoutContainer = styled.main`
     display: grid;
     grid-template-columns: minmax(auto, 640px) 1fr;
     gap: 2rem;
+  }
 
-    h2 {
-      color: ${(props) => props.theme['base-subtitle']};
-      font: ${(props) => props.theme['title-xs']};
-    }
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
 
-    section {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
+  h2 {
+    color: ${(props) => props.theme['base-subtitle']};
+    font: ${(props) => props.theme['title-xs']};
   }
 
   @media (max-width: 968px) {
@@ -30,6 +30,7 @@ export const CheckoutContainer = styled.main`
     }
   }
 `
+
 const BaseDiv = styled.div`
   background: ${(props) => props.theme['base-card']};
 
@@ -47,6 +48,12 @@ export const FormInfo = styled.div<FormInfoProps>`
 
   margin-bottom: 2rem;
 
+  svg {
+    color: ${(props) => props.$iconColor && props.theme[props.$iconColor]};
+
+    min-width: fit-content;
+  }
+
   h3 {
     color: ${(props) => props.theme['base-subtitle']};
     font: ${(props) => props.theme['text-m']};
@@ -56,16 +63,10 @@ export const FormInfo = styled.div<FormInfoProps>`
     color: ${(props) => props.theme['base-text']};
     font: ${(props) => props.theme['text-s']};
   }
-
-  svg {
-    color: ${(props) => props.$iconColor && props.theme[props.$iconColor]};
-
-    min-width: fit-content;
-  }
 `
 
 export const Address = styled(BaseDiv)`
-  .address-forms {
+  .address-inputs {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -98,70 +99,12 @@ export const Payment = styled(BaseDiv)`
   }
 `
 
-interface SelectProps {
-  $invalid?: boolean
-}
-
-export const Select = styled.div<SelectProps>`
-  display: flex;
-
-  width: 100%;
-
-  input[type='radio'] {
-    visibility: hidden;
-
-    position: absolute;
-  }
-
-  input[type='radio']:checked ~ label {
-    background: ${(props) => props.theme['purple-light']};
-
-    border: 1px solid ${(props) => props.theme.purple};
-  }
-
-  label {
-    display: flex;
-    align-items: center;
-
-    background: ${(props) => props.theme['base-button']};
-    width: 100%;
-
-    padding: 1rem;
-    border: 1px solid transparent;
-    border-radius: 6px;
-
-    font: ${(props) => props.theme['button-m']};
-    line-height: initial;
-
-    cursor: pointer;
-
-    transition: 0.1s border, 0.1s background-color;
-
-    svg {
-      margin-right: 0.75rem;
-
-      color: ${(props) => props.theme.purple};
-      line-height: 0;
-    }
-
-    &:hover {
-      background: ${(props) => props.theme['base-hover']};
-    }
-
-    ${(props) =>
-      props.$invalid &&
-      css`
-        border: 1px solid ${(props) => props.theme.red};
-      `}
-  }
-`
-
 export const Summary = styled(BaseDiv)`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 
-  border-radius: 6px, 44px;
+  border-radius: 6px 44px;
 
   ul {
     display: flex;
@@ -170,7 +113,7 @@ export const Summary = styled(BaseDiv)`
   }
 
   hr {
-    background-color: ${(props) => props.theme['base-button']};
+    background: ${(props) => props.theme['base-button']};
     height: 1px;
 
     border: none;
@@ -205,13 +148,10 @@ export const Summary = styled(BaseDiv)`
     background: ${(props) => props.theme.yellow};
 
     padding: 0.75rem 0.5rem;
-    border: none;
     border-radius: 6px;
 
     color: ${(props) => props.theme.white};
     font: ${(props) => props.theme['button-g']};
-
-    cursor: pointer;
 
     transition: 0.1s background-color;
 

@@ -1,23 +1,24 @@
 import { styled } from 'styled-components'
 
 export const CoffeeCardContainer = styled.li`
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.75rem;
 
-  position: relative;
-
   background: ${(props) => props.theme['base-card']};
   width: 100%;
-  max-width: 256px;
+  max-width: 16rem;
 
   padding: 1.25rem;
   border-radius: 6px 36px;
+  margin: 0 auto;
 
   img {
-    max-width: 120px;
-    max-height: 120px;
+    max-width: 7.5rem;
+    max-height: 7.5rem;
 
     margin-top: calc((2.5rem) * -1);
   }
@@ -29,8 +30,8 @@ export const CoffeeCardContainer = styled.li`
     span {
       background: ${(props) => props.theme['yellow-light']};
 
-      border-radius: 100px;
       padding: 0.25rem 0.5rem;
+      border-radius: 100px;
 
       color: ${(props) => props.theme['yellow-dark']};
       font: ${(props) => props.theme.tag};
@@ -57,14 +58,14 @@ export const CoffeeCardContainer = styled.li`
   }
 `
 
-export const Buy = styled.div`
+export const BuyInformation = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   width: 100%;
 
-  & > span {
+  span {
     font: ${(props) => props.theme['text-s']};
 
     strong {
@@ -72,32 +73,24 @@ export const Buy = styled.div`
     }
   }
 
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: none;
-
-    line-height: 0;
-
-    cursor: pointer;
-
-    transition: color 0.1s, background-color 0.1s;
-  }
-
-  .buy-actions {
+  form {
     display: flex;
     justify-content: space-between;
     gap: 0.5rem;
 
     & > button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
       background: ${(props) => props.theme['purple-dark']};
 
       padding: 0.5rem;
       border-radius: 6px;
 
       color: ${(props) => props.theme.white};
+
+      transition: color 0.1s, background-color 0.1s;
 
       &:hover {
         background: ${(props) => props.theme.purple};

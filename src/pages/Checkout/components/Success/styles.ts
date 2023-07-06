@@ -52,8 +52,6 @@ export const SuccessContainer = styled.main`
       padding: 2.5rem;
       border: 1px solid transparent;
       border-radius: 6px 36px;
-
-      list-style: none;
     }
   }
 

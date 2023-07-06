@@ -43,10 +43,8 @@ export const Intro = styled.section`
   ul {
     display: grid;
     grid-template-columns: 1fr 1.25fr;
-    gap: 1.25rem 2.5rem;
     align-items: center;
-
-    list-style: none;
+    gap: 1.25rem 2.5rem;
   }
 
   @media (max-width: 768px) {

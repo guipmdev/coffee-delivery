@@ -9,6 +9,8 @@ export enum ActionTypes {
   FINISH_ORDER = 'FINISH_ORDER',
 }
 
+export type ModifyAction = 'increase' | 'decrease'
+
 export function addNewCoffeeAction(coffeeId: string, quantity: number) {
   return {
     type: ActionTypes.ADD_NEW_COFFEE,
@@ -18,7 +20,7 @@ export function addNewCoffeeAction(coffeeId: string, quantity: number) {
 
 export function modifyCoffeeQuantityAction(
   coffeeId: string,
-  modifyAction: 'increase' | 'decrease',
+  modifyAction: ModifyAction,
 ) {
   return {
     type: ActionTypes.MODIFY_COFFEE_QUANTITY,

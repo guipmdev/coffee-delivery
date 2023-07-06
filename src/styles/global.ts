@@ -18,7 +18,20 @@ export const GlobalStyle = createGlobalStyle<{}>`
     -webkit-font-smoothing: antialiased;
   }
 
+  button {
+    cursor: pointer;
+  }
+
+  button, input, textarea {
+    background: transparent;
+    border: none;
+  }
+
   body, input, textarea, button {
     font: ${(props) => props.theme['text-m']};
+  }
+
+  ul {
+    list-style: none;
   }
 `

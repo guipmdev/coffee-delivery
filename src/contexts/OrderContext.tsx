@@ -1,10 +1,12 @@
-import { ReactNode, createContext, useEffect, useReducer } from 'react'
+import { createContext, ReactNode, useReducer, useEffect } from 'react'
+
 import { Order, OrderPayload, orderReducer } from '../reducers/orders/reducer'
 import {
+  ModifyAction,
   addNewCoffeeAction,
-  finishOrderAction,
   modifyCoffeeQuantityAction,
   removeCoffeeAction,
+  finishOrderAction,
 } from '../reducers/orders/actions'
 
 interface OrderContextType {
@@ -13,7 +15,7 @@ interface OrderContextType {
   removeCoffeeFromOrder: (coffeeId: string) => void
   modifyCoffeeQuantityInOrder: (
     coffeeId: string,
-    modifyAction: 'increase' | 'decrease',
+    modifyAction: ModifyAction,
   ) => void
   finishOrder: (orderPayload: OrderPayload) => void
 }
@@ -56,7 +58,7 @@ export function OrderContextProvider({ children }: OrderContextProps) {
 
   function modifyCoffeeQuantityInOrder(
     coffeeId: string,
-    modifyAction: 'increase' | 'decrease',
+    modifyAction: ModifyAction,
   ) {
     dispatch(modifyCoffeeQuantityAction(coffeeId, modifyAction))
   }

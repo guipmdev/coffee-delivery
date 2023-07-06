@@ -1,11 +1,12 @@
-import { ActionButton, HeaderContainer } from './styles'
+import { HeaderContainer, ActionButton } from './styles'
 
+import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { MapPin, ShoppingCart } from '@phosphor-icons/react'
 
-import CoffeeDeliveryLogo from '../../assets/coffee-delivery-logo.svg'
 import { OrderContext } from '../../contexts/OrderContext'
-import { useContext } from 'react'
+
+import CoffeeDeliveryLogo from '../../assets/coffee-delivery-logo.svg'
 
 export function Header() {
   const { order } = useContext(OrderContext)
@@ -17,16 +18,21 @@ export function Header() {
       </NavLink>
 
       <nav>
-        <ActionButton to="#" $mainColor="purple" title="Local" $hasText>
+        <ActionButton
+          to="#"
+          title="Mudar região atual"
+          $color="purple"
+          $hasText
+        >
           <MapPin size={22} weight="fill" />
-          <span>Porto Alegre, RS</span>
+          <p>Porto Alegre, RS</p>
         </ActionButton>
 
         <ActionButton
           to="/checkout"
-          $mainColor="yellow"
           title="Carrinho"
-          $hasPill
+          $color="yellow"
+          $hasCounter
         >
           <ShoppingCart size={22} weight="fill" />
           <span>{order.totalQuantity}</span>
