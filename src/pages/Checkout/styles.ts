@@ -23,7 +23,7 @@ export const CheckoutContainer = styled.main`
     font: ${(props) => props.theme['title-xs']};
   }
 
-  @media (max-width: 968px) {
+  @media (max-width: 1024px) {
     form {
       display: flex;
       flex-direction: column;
@@ -92,7 +92,7 @@ export const Payment = styled(BaseDiv)`
     gap: 0.75rem;
   }
 
-  @media (max-width: 758px) {
+  @media (max-width: 668px) {
     .payment-options {
       flex-direction: column;
     }

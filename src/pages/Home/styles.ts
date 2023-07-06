@@ -20,9 +20,9 @@ export const Intro = styled.section`
 
   img {
     width: 100%;
-    height: 100%;
-    min-width: calc(0.6 * 476px);
-    max-width: 476px;
+    height: auto;
+    min-width: calc(0.6 * 29.75rem);
+    max-width: 29.75rem;
 
     margin: 0 auto;
   }

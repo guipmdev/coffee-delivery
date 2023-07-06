@@ -15,6 +15,7 @@ export const CoffeeCardContainer = styled.li`
     justify-self: flex-end;
 
     font: ${(props) => props.theme['text-m-bold']};
+    white-space: nowrap;
   }
 
   @media (max-width: 525px) {
