@@ -1,4 +1,4 @@
-import { styled } from 'styled-components'
+import styled from 'styled-components'
 
 export const SuccessContainer = styled.main`
   max-width: ${(props) => props.theme['max-width']};
