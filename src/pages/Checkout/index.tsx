@@ -135,21 +135,29 @@ export function Checkout() {
                   placeholder="CEP"
                   maxLength={8}
                   $width={200}
-                  name="address.cep"
+                  group="address"
+                  name="cep"
                 />
-                <Input type="text" placeholder="Rua" name="address.street" />
+                <Input
+                  type="text"
+                  placeholder="Rua"
+                  group="address"
+                  name="street"
+                />
 
                 <div className="input-group">
                   <Input
                     type="text"
                     placeholder="Número"
                     $width={200}
-                    name="address.number"
+                    group="address"
+                    name="number"
                   />
                   <Input
                     type="text"
                     placeholder="Complemento"
-                    name="address.complement"
+                    group="address"
+                    name="complement"
                     optional
                   />
                 </div>
@@ -159,15 +167,22 @@ export function Checkout() {
                     type="text"
                     placeholder="Bairro"
                     $width={200}
-                    name="address.neighborhood"
+                    group="address"
+                    name="neighborhood"
                   />
-                  <Input type="text" placeholder="Cidade" name="address.city" />
+                  <Input
+                    type="text"
+                    placeholder="Cidade"
+                    group="address"
+                    name="city"
+                  />
                   <Input
                     type="text"
                     placeholder="UF"
                     maxLength={2}
                     $width={60}
-                    name="address.state"
+                    group="address"
+                    name="state"
                   />
                 </div>
               </div>

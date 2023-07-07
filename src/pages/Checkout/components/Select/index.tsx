@@ -17,12 +17,10 @@ export function Select({
   name,
   selectText,
 }: SelectProps) {
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext()
+  const { register, getFieldState, formState } = useFormContext()
 
-  const isErrored = !!errors[name]
+  const { error } = getFieldState(name, formState)
+  const isErrored = !!error
 
   return (
     <SelectContainer $invalid={isErrored}>
