@@ -24,9 +24,6 @@ export const CoffeeCardContainer = styled.li`
   }
 
   .tags {
-    display: flex;
-    gap: 0.25rem;
-
     span {
       background: ${(props) => props.theme['yellow-light']};
 
@@ -36,6 +33,10 @@ export const CoffeeCardContainer = styled.li`
       color: ${(props) => props.theme['yellow-dark']};
       font: ${(props) => props.theme.tag};
       text-transform: uppercase;
+    }
+
+    span + span {
+      margin-left: 0.25rem;
     }
   }
 

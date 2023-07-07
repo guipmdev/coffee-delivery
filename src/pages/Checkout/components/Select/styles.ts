@@ -33,6 +33,7 @@ export const SelectContainer = styled.div<SelectProps>`
     border-radius: 6px;
 
     font: ${(props) => props.theme['button-m']};
+    line-height: initial;
 
     cursor: pointer;
 

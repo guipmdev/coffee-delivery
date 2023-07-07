@@ -53,6 +53,7 @@ export const Info = styled.div`
       border-radius: 6px;
 
       font: ${(props) => props.theme['button-m']};
+      line-height: initial;
 
       background: ${(props) => props.theme['base-button']};
 

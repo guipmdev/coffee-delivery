@@ -29,6 +29,7 @@ export const QuantitySelectorContainer = styled.div`
 
     color: ${(props) => props.theme['base-title']};
     font: ${(props) => props.theme['text-m']};
+    line-height: initial;
 
     appearance: textfield;
     -moz-appearance: textfield;

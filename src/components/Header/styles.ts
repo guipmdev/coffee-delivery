@@ -89,6 +89,7 @@ export const ActionButton = styled(NavLink)<HeaderButtonProps>`
 
         color: ${props.theme.white};
         font: ${(props) => props.theme['text-xs']};
+        line-height: initial;
       }
     `}
 
