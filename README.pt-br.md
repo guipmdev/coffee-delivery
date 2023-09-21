@@ -12,40 +12,38 @@
   />
 </p>
 
-<p align="center">
+<h1 align="center">
   <a
-    href="https://guipmdev-ignite-timer.vercel.app/"
+    href="https://guipmdev-coffee-delivery.vercel.app/"
     title="Acessar a aplicação web"
   >
     <img
-      src="./src/assets/logo-ignite.svg"
-      alt="Logo do Ignite Feed"
-      height="60px"
+      src="./src/assets/coffee-delivery-logo.svg"
+      alt="Logo do Coffee Delivery"
+      height="80px"
     />
   </a>
-</p>
-
-<h1 align="center">Ignite Timer</h1>
+</h1>
 
 <p align="center">
   <img
-    src="https://img.shields.io/github/languages/count/guipmdev/ignite-timer?color=%2304D361&labelColor=202024&label=linguagens"
+    src="https://img.shields.io/github/languages/count/guipmdev/coffee-delivery?color=%2304D361&labelColor=202024&label=linguagens"
     alt="Contagem de linguagens do repositório"
   />
   <img
-    src="https://img.shields.io/github/repo-size/guipmdev/ignite-timer?labelColor=202024&label=tamanho do repo"
+    src="https://img.shields.io/github/repo-size/guipmdev/coffee-delivery?labelColor=202024&label=tamanho do repo"
     alt="Tamanho do repositório"
   />
   <img
-    src="https://img.shields.io/github/commit-activity/m/guipmdev/ignite-timer?color=black&labelColor=202024&label=atividade de commits"
+    src="https://img.shields.io/github/commit-activity/m/guipmdev/coffee-delivery?color=black&labelColor=202024&label=atividade de commits"
     alt="Atividade de commits"
   />
   <a
-    href="https://github.com/guipmdev/ignite-timer/commits/main"
+    href="https://github.com/guipmdev/coffee-delivery/commits/main"
     title="Visualizar commits do repositório"
   >
     <img
-      src="https://img.shields.io/github/last-commit/guipmdev/ignite-timer?labelColor=202024&label=último commit"
+      src="https://img.shields.io/github/last-commit/guipmdev/coffee-delivery?labelColor=202024&label=último commit"
       alt="Último commit"
     />
   </a>
@@ -66,7 +64,7 @@
 ![Captura de tela da página inicial da aplicação](./src/assets/images/cover.webp)
 
 <p align="center">
-  <a href="https://guipmdev-ignite-timer.vercel.app/"
+  <a href="https://guipmdev-coffee-delivery.vercel.app/"
     >Acessar a aplicação web ↗</a
   >
 </p>
@@ -95,27 +93,17 @@
 
 ## 📍 Visão geral
 
-Esse projeto é uma aplicação web desenvolvida em _React_ e _TypeScript_ servindo como cronômetro para gerenciar ciclos, permitindo que os usuários criem tarefas com durações específicas e as interrompam e/ou marquem como concluídas.
+Esse projeto é uma aplicação web desenvolvida em _React_ e _TypeScript_ servindo como ...
 
-A aplicação oferece recursos como cronômetros de contagem regressiva, histórico e uma interface fácil de usar, melhorando a produtividade e as habilidades de gestão de tempo.
+A aplicação oferece recursos como ...
 
 ## ✨ Funcionalidades
 
-⏱ Defina **o que deseja trabalhar**, e por quanto **tempo**
-
-🎯 **Mude de aba** e continue vendo o tempo passar
-
-🔄 Atualizar a página **não perde o progresso**
-
-📃 Veja as tarefas em andamento, já concluídas e/ou interrompidas em formato de **histórico**
-
 ## 🤖 Demo
-
-https://github.com/guipmdev/ignite-timer/assets/136738335/cad338b5-518c-4ffc-84d5-c7e78d0df639
 
 ## 🎨 Layout
 
-O layout da aplicação foi projetado pela **Rocketseat** e está disponível no [Figma](<https://www.figma.com/file/djb7QGcTHA3Qtunn77t7pB/Ignite-Timer-(Community)>).
+O layout da aplicação foi projetado pela **Rocketseat** e está disponível no [Figma](https://www.figma.com/file/INoWt9rCQHbB6vEqMm3wOz/Coffee-Delivery-%E2%80%A2-Desafio-React).
 
 <p align="center">
   <img
@@ -181,12 +169,6 @@ As seguintes ferramentas foram usadas para desenvolver esse projeto:
     <img
       src="https://img.shields.io/badge/Zod-3068b7?style=for-the-badge&logo=zod"
       alt="Zod"
-    />
-  </a>
-  <a href="https://date-fns.org/">
-    <img
-      src="https://img.shields.io/badge/date--fns-fffbf5?style=for-the-badge&logo=data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjMycHgiIGhlaWdodD0iMjZweCIgdmlld0JveD0iMCAwIDMyIDI2IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCAzLjcuMSAoMjgyMTUpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPlNsaWNlIDE8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iZGF0ZS1mbnMtbWluaS1sb2dvIiBmaWxsPSIjNzcwQzU2Ij4KICAgICAgICAgICAgPGcgaWQ9IlBhZ2UtMSI+CiAgICAgICAgICAgICAgICA8ZyBpZD0ibG9nbyI+CiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IlBhZ2UtMSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJTb2xpZC1sb2dvIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJXaGl0ZS1sb2dvIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMC4wNzczMzc3OTUxLDEyLjk2MTc2NDcgQzAuMDc3MzM3Nzk1MSwxMC40NjU3NTIyIDAuNTQxMzU5OTI2LDguMTEyMDExMDYgMS40Njk0MTgxMSw1LjkwMDQ3MDU5IEMyLjM5NzQ3NjI5LDMuNjg4OTMwMTMgMy43MzM4NjAwMywxLjcyOTc3MzI0IDUuNDc4NjA5NDEsMC4wMjI5NDExNzY0IEw4Ljk4NjY1MTc5LDAuMDIyOTQxMTc2NCBDNS4zNDg2NjM3MiwzLjU4MzQyOTU2IDMuNTI5Njk2OTcsNy44OTYzMjc2MSAzLjUyOTY5Njk3LDEyLjk2MTc2NDcgQzMuNTI5Njk2OTcsMTguMDI3MjAxOCA1LjM0ODY2MzcyLDIyLjM0MDA5OTkgOC45ODY2NTE3OSwyNS45MDA1ODgzIEw1LjQ3ODYwOTQxLDI1LjkwMDU4ODMgQzMuNzMzODYwMDMsMjQuMTkzNzU2MSAyLjM5NzQ3NjI5LDIyLjIzNDU5OTMgMS40Njk0MTgxMSwyMC4wMjMwNTg4IEMwLjU0MTM1OTkyNiwxNy44MTE1MTg0IDAuMDc3MzM3Nzk1MSwxNS40NTc3NzcyIDAuMDc3MzM3Nzk1MSwxMi45NjE3NjQ3IEwwLjA3NzMzNzc5NTEsMTIuOTYxNzY0NyBMMC4wNzczMzc3OTUxLDEyLjk2MTc2NDcgTDAuMDc3MzM3Nzk1MSwxMi45NjE3NjQ3IFogTTMxLjQzNzgxMzcsMTIuOTYxNzY0NyBDMzEuNDM3ODEzNywxNS40NTc3NzcyIDMwLjk3Mzc5MTYsMTcuODExNTE4NCAzMC4wNDU3MzM0LDIwLjAyMzA1ODggQzI5LjExNzY3NTIsMjIuMjM0NTk5MyAyNy43ODEyOTE1LDI0LjE5Mzc1NjEgMjYuMDM2NTQyMSwyNS45MDA1ODgzIEwyMi41Mjg0OTk4LDI1LjkwMDU4ODMgQzI2LjE2NjQ4NzgsMjIuMzQwMDk5OSAyNy45ODU0NTQ1LDE4LjAyNzIwMTggMjcuOTg1NDU0NSwxMi45NjE3NjQ3IEMyNy45ODU0NTQ1LDcuODk2MzI3NjEgMjYuMTY2NDg3OCwzLjU4MzQyOTU2IDIyLjUyODQ5OTgsMC4wMjI5NDExNzY0IEwyNi4wMzY1NDIxLDAuMDIyOTQxMTc2NCBDMjcuNzgxMjkxNSwxLjcyOTc3MzI0IDI5LjExNzY3NTIsMy42ODg5MzAxMyAzMC4wNDU3MzM0LDUuOTAwNDcwNTkgQzMwLjk3Mzc5MTYsOC4xMTIwMTEwNiAzMS40Mzc4MTM3LDEwLjQ2NTc1MjIgMzEuNDM3ODEzNywxMi45NjE3NjQ3IEwzMS40Mzc4MTM3LDEyLjk2MTc2NDcgTDMxLjQzNzgxMzcsMTIuOTYxNzY0NyBMMzEuNDM3ODEzNywxMi45NjE3NjQ3IFoiIGlkPSJQYXJhbnMiPjwvcGF0aD4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iSGFuZHMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEyLjk1NDA4MSwgMS43MjA1ODgpIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHJlY3QgaWQ9IkhhbmQiIHg9IjAiIHk9IjAiIHdpZHRoPSIyLjMyMDEzMzg2IiBoZWlnaHQ9IjEzLjE5MTE3NjQiPjwvcmVjdD4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBvbHlnb24gaWQ9IkhhbmQiIHBvaW50cz0iMi4zMTg5NTUxIDEzLjE0OTkzNDIgMC44MTUwODc5MTYgMTEuNjYyOTMwMiAxMC4yNDg0MzY2IDIuMzM1MzU5OSAxMS43NTIzMDM4IDMuODIyMzYzODggMi4zMTg5NTUxIDEzLjE0OTkzNDIiPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg=="
-      alt="date-fns"
     />
   </a>
   <a href="https://immerjs.github.io/immer/">
@@ -260,13 +242,13 @@ Antes de você começar, certifique-se que você tem as seguintes ferramentas in
 1. Clone o repositório:
 
 ```sh
-git clone https://github.com/guipmdev/ignite-timer/
+git clone https://github.com/guipmdev/coffee-delivery/
 ```
 
 2. Mude para o diretório do projeto:
 
 ```sh
-cd ignite-timer
+cd coffee-delivery
 ```
 
 3. Instale as dependências:

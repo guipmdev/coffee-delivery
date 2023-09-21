@@ -19,7 +19,7 @@
   >
     <img
       src="./src/assets/coffee-delivery-logo.svg"
-      alt="Ignite Timer logo"
+      alt="Coffee Delivery logo"
       height="80px"
     />
   </a>
