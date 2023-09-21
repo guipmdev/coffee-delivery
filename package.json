@@ -1,6 +1,6 @@
 {
   "name": "coffee-delivery-desafio-react",
-  "description": "",
+  "description": "Web app for ordering coffee delivery with ease and convenience",
   "private": true,
   "type": "module",
   "scripts": {

@@ -93,11 +93,21 @@
 
 ## 📍 Overview
 
-This project is a web application developed in _React_ and _TypeScript_ that ...
+This project is a web application developed in _React_ and _TypeScript_ for buying coffee for delivery, which allows users to search among the available coffees and add them to their orders to be delivered to their homes.
 
-The application offers features such as ...
+The application offers features such as a shopping list, to add the products you want, and a checkout to enter your personal information and finalize the purchase (front-end only). With an easy interface, the ordering process is more convenient, as the cart is saved in a local browser storage.
 
 ## ✨ Features
+
+☕ **Navigate through the different kinds of coffees** available to choose from
+
+🛒 **Add the quantity you want** of the selected products to your cart
+
+🔄 Your **cart is stored** until you close the order, so you can refresh the page with no worry
+
+💳 **Validate** your purchase and **complete it** securely
+
+🛵 **Wait for delivery** to be made (_only symbolic_)
 
 ## 🤖 Demo
 

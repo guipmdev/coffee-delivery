@@ -93,11 +93,21 @@
 
 ## 📍 Visão geral
 
-Esse projeto é uma aplicação web desenvolvida em _React_ e _TypeScript_ servindo como ...
+Esse projeto é uma aplicação web desenvolvida em _React_ e _TypeScript_ voltada para a compra de cafés para delivery, que permite aos usuários pesquisarem dentre os cafés disponíveis e colocá-los aos seus pedidos para receber em casa.
 
-A aplicação oferece recursos como ...
+A aplicação oferece recursos como uma lista de compras, para adicionar os produtos desejado, e um checkout para colocar suas informações pessoais e finalizar a compra (somente o front-end). Com uma interface fácil, o processo de pedido fica mais cômodo, já que o carrinho fica salvo em um armazenamento local do navegador.
 
 ## ✨ Funcionalidades
+
+☕ **Navegue pelos diversos tipos de cafés** disponíveis para escolher
+
+🛒 **Adicione a quantidade desejada** dos produtos escolhidos ao carrinho
+
+🔄 Seu **carrinho fica salvo** até você fechar o pedido, então pode atualizar a página sem medo
+
+💳 **Valide** sua compra e **conclua-a** com segurança
+
+🛵 **Aguarde a entrega** ser feita (_apenas simbólico_)
 
 ## 🤖 Demo
 
