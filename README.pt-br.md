@@ -111,6 +111,8 @@ A aplicação oferece recursos como uma lista de compras, para adicionar os prod
 
 ## 🤖 Demo
 
+https://github.com/guipmdev/coffee-delivery/assets/136738335/bfad1a1d-598a-495d-bf43-7352a6a00ccc
+
 ## 🎨 Layout
 
 O layout da aplicação foi projetado pela **Rocketseat** e está disponível no [Figma](https://www.figma.com/file/INoWt9rCQHbB6vEqMm3wOz/Coffee-Delivery-%E2%80%A2-Desafio-React).
