@@ -37,6 +37,9 @@
     "type": "git",
     "url": "git+https://github.com/guipmdev/coffee-delivery.git"
   },
+  "bugs": {
+    "url": "https://github.com/guipmdev/coffee-delivery/issues"
+  },
   "author": {
     "name": "Guilherme Preveda Milék",
     "email": "guipmdev@gmail.com",
